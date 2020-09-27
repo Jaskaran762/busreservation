@@ -1,0 +1,12 @@
+.content {
+  margin: 50px;
+  position: relative;
+  left: 450px;
+}
+button {
+  background-color: rgb(26, 147, 247);
+  color: white;
+  border: none;
+  width: 80px;
+  height: 40px;
+}

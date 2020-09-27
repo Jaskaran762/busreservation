@@ -1,0 +1,43 @@
+
+<div id="dashboard">
+    <div class="navbar">
+        <span class="username">Hello {{username}} </span>
+        <span><button>Logout</button></span>
+    </div>
+    <div class="w3-sidebar sidebar w3-bar-block">
+        <span (click)="onClickDashBoard()" class="sidebar">
+            <p class="w3-bar-item w3-button">Dashboard</p>
+        </span>
+
+        <span (click)="onClickBookings()" class="sidebar">
+            <p class="w3-bar-item w3-button">Bookings</p> 
+        </span>
+
+        <span (click)="onClickProfile()" >
+            <p class="w3-bar-item w3-button sidebar">Profile</p>
+        </span>
+
+        <span (click)="onClickChangePassword()" class="sidebar">
+            <p class="w3-bar-item w3-button">Change Password</p> 
+        </span>
+
+        <span (click)="onClickWallet()" class="sidebar">
+            <p class="w3-bar-item w3-button">Wallet</p>
+        </span>
+
+    </div>
+
+    <div class="mainbody">
+        <app-search-buses *ngIf="dashboard"></app-search-buses>
+        <app-bookinglist *ngIf="booking"></app-bookinglist>
+        <app-profile *ngIf="profile"></app-profile>
+        <app-passwordreset *ngIf="changepassword"></app-passwordreset>
+        <app-wallet *ngIf="wallet"></app-wallet>
+    </div>
+
+    <div class="footer">
+        <span><a ref="#">Contact Us</a></span>
+        <span><a ref="#">Terms & Conditions</a></span>
+    </div>
+    
+</div>

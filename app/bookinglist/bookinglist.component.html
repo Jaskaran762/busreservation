@@ -1,0 +1,29 @@
+<div class="table-list">
+    <table class="bookings">
+        <tr>
+            <th>Booking ID</th>
+            <th>BUS NAME</th>
+            <th>BUS ID</th>
+            <th>FROM</th>
+            <th>TO</th>
+            <th>Booking Date</th>
+            <th>Booking Time</th>
+            <th>No. of Bookings</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let booking of bookings">
+            <td>{{booking.bookingId}}</td>
+            <td>{{booking.busName}}</td>
+            <td>{{booking.busId}}</td>
+            <td>{{booking.from}}</td>
+            <td>{{booking.to}}</td>
+            <td>{{booking.bookingDate|date:'yyyy-mm-dd'}}</td>
+            <td>{{booking.bookingtime}}</td>
+            <td>{{booking.noOfBookings}}</td>
+            <td><button class="button">Print</button></td>
+            <td><button class="button" routerLink="/cancel-booking">Cancel</button></td>
+        </tr>
+    </table>
+
+</div>

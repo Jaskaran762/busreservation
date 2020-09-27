@@ -1,0 +1,29 @@
+.wallet{
+    font-size: larger;
+    font-weight: 300;
+}
+.container{
+    margin-top: 5%;
+    margin-left: 38%;
+}
+.container span{
+    text-align: center;
+}
+.update{
+    clear: both;
+    margin: 2% 35%;
+}
+.update button{
+  /*  background-color: #4CAF50;*/
+    background-color: rgb(26, 147, 247);
+    border-radius: 5px;
+    color: white;
+    border-color: white;
+    padding: 20px;
+    width: 70%
+}
+.update button:hover{
+    cursor: pointer;
+    padding: 23px;
+    color: rgb(197, 176, 176);
+}
