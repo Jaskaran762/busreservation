@@ -6,13 +6,13 @@
     font-weight: 300;
     border-width: 1px;
     margin-top: 5%;
-    color: brown;
+    color: rgb(26, 147, 247);
     margin-top: 0%;
     padding-top: 3%;
 }
 .container .c1{
     border-style: solid;
-    border-color: grey;
+    border-color: rgb(26, 147, 247);
     border-width: 1px;
     padding-bottom: 5%;
 }
@@ -33,7 +33,7 @@
 .amount input,.payment input{
     padding: 5px 30px;
     border-style: none;
-    border-bottom: solid grey;
+    border-bottom: solid rgb(26, 147, 247);
     border-width: 1px;
     display: block;
     width: 100%;
@@ -52,7 +52,7 @@
     color: white;
     text-align: center;
     width: 100%;
-    background-color: rgb(104, 32, 32);
+    background-color: rgb(26, 147, 247);
     border-style: solid;
     border-width: 1px;
     padding: 5px 10%;
