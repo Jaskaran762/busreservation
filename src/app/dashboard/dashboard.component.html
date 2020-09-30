@@ -1,0 +1,46 @@
+<div class="header">
+    <a routerLink="/dashboard"><i class="fas fa-bus"></i></a>
+    <h2 text-align="left">Bus Reservation System</h2>
+</div>
+<div id="dashboard">
+    <div class="navbar">
+        <span class="username">Hello {{username}} </span>
+        <span><button routerLink="/homepage">Logout</button></span>
+    </div>
+    <div class="w3-sidebar sidebar w3-bar-block">
+        <span (click)="onClickDashBoard()" class="sidebar">
+            <p class="w3-bar-item w3-button"><i class="fas fa-columns"></i>  Dashboard</p>
+        </span>
+
+        <span (click)="onClickBookings()" class="sidebar">
+            <p class="w3-bar-item w3-button"><i class="fas fa-bookmark"></i> Bookings</p> 
+        </span>
+
+        <span (click)="onClickProfile()">
+            <p class="w3-bar-item w3-button sidebar"><i class="fas fa-id-card"></i> Profile</p>
+        </span>
+
+        <span (click)="onClickChangePassword()" class="sidebar">
+            <p class="w3-bar-item w3-button"><i class="fas fa-lock"></i> Change Password</p> 
+        </span>
+
+        <span (click)="onClickWallet()" class="sidebar">
+            <p class="w3-bar-item w3-button"><i class="fas fa-wallet"></i> Wallet</p>
+        </span>
+
+    </div>
+
+    <div class="mainbody">
+        <app-search-buses *ngIf="dashboard"></app-search-buses>
+        <app-bookinglist *ngIf="booking"></app-bookinglist>
+        <app-profile *ngIf="profile"></app-profile>
+        <app-passwordreset *ngIf="changepassword"></app-passwordreset>
+        <app-wallet *ngIf="wallet"></app-wallet>
+    </div>
+
+    <div class="footer">
+        <span><a routerLink="/contact-us">Contact Us</a></span>
+        <span><a routerLink="/about-us">About Us</a></span>
+    </div>
+
+</div>

@@ -1,0 +1,30 @@
+<app-homepage></app-homepage>
+<table class="center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Bus Name</th>
+            <th>Bus Number</th>
+            <th>Amount</th>
+            <th>Seats</th>
+            <th>Status</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of buses">
+            <td>{{b.id}}</td>
+            <td>{{b.busName}}</td>
+            <td>{{b.busNumber}}</td>
+            <td>{{b.amount}}</td>
+            <td>{{b.seats}}</td>
+            <td>{{b.status}}</td>
+            <td>{{b.type}}</td>
+            <button class="button1" type="button" routerLink="/">Select</button>
+        </tr>
+    </tbody>
+</table>
+<button class="button1" type="button" style="margin-left: 45%;" routerLink="/">Cancel</button>
+
+
+
