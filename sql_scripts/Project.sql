@@ -11,7 +11,7 @@ CREATE TABLE  customer  (
 /
 CREATE TABLE  bus  (
 	 id  INT,
-	 bus_name  INT NOT NULL,
+	 bus_name  VARCHAR2(45) NOT NULL,
 	 bus_number  VARCHAR2(255) UNIQUE NOT NULL,
 	 amount  FLOAT NOT NULL,
 	 seats  INT NOT NULL,
