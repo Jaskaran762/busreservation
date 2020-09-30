@@ -17,6 +17,7 @@ export class PasswordresetComponent implements OnInit {
 
   //}
 
+  //need to compare old password
   get Password() {
     return this.ResetForm.get('password');
   }
