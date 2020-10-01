@@ -1,6 +1,6 @@
-insert into customer values(1,'shivam','shivam0108','shivampassword',7209562864,'shivam0108@gmail.com');
-insert into customer values(2,'Jaskaran','Jaskaran0108','Jaskaranpassword',7209598764,'jassi@gmail.com');
-insert into customer values(3,'Dayeeta','Dayeeta0108','Dayeetapassword',7284648764,'dayeeta234@gmail.com');
+insert into customer values(1,'shivam','shivampassword',7209562864,'shivam0108@gmail.com');
+insert into customer values(2,'Jaskaran','Jaskaranpassword',7209598764,'jassi@gmail.com');
+insert into customer values(3,'Dayeeta','Dayeetapassword',7284648764,'dayeeta234@gmail.com');
 
 ALTER TABLE bus
   MODIFY bus_name varchar2(45);

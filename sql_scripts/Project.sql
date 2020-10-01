@@ -1,7 +1,7 @@
 CREATE TABLE  customer  (
 	 id  INT,
 	 name  VARCHAR2(4000) NOT NULL,
-	 username  VARCHAR2(4000) UNIQUE NOT NULL,
+	
 	 password  VARCHAR2(255) NOT NULL,
 	 mobile_no  INT UNIQUE NOT NULL,
 	 email_id  VARCHAR2(255) UNIQUE NOT NULL,
@@ -90,17 +90,3 @@ CREATE TABLE  route  (
 /
 
 
-ALTER TABLE  booking  ADD CONSTRAINT  booking_fk0  FOREIGN KEY ( customer_id ) REFERENCES  customer ( id );
-ALTER TABLE  booking  ADD CONSTRAINT  booking_fk1  FOREIGN KEY ( bus_id ) REFERENCES  bus ( id );
-
-ALTER TABLE  passenger  ADD CONSTRAINT  passenger_fk0  FOREIGN KEY ( customer_id ) REFERENCES  customer ( id );
-ALTER TABLE  passenger  ADD CONSTRAINT  passenger_fk1  FOREIGN KEY ( booking_id ) REFERENCES  booking ( id );
-
-ALTER TABLE  payment_detail  ADD CONSTRAINT  payment_detail_fk0  FOREIGN KEY ( booking_id ) REFERENCES  booking ( id );
-ALTER TABLE  payment_detail  ADD CONSTRAINT  payment_detail_fk1  FOREIGN KEY ( customer_id ) REFERENCES  customer ( id );
-
-ALTER TABLE  available_seat  ADD CONSTRAINT  available_seat_fk0  FOREIGN KEY ( b_id ) REFERENCES  bus ( id );
-
-
-ALTER TABLE  route  ADD CONSTRAINT  route_fk0  FOREIGN KEY ( bus_id ) REFERENCES  bus ( id );
-ALTER TABLE  route  ADD CONSTRAINT  route_fk1  FOREIGN KEY ( stop_id ) REFERENCES  stop ( id );
