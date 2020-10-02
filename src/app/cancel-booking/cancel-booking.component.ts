@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CancelBookingService } from '../cancel-booking.service';
 import { Router } from '@angular/router';
 
@@ -7,13 +7,17 @@ import { Router } from '@angular/router';
   templateUrl: './cancel-booking.component.html',
   styleUrls: ['./cancel-booking.component.css'],
 })
-export class CancelBookingComponent {
-  id: number;
+export class CancelBookingComponent implements OnInit {
+  id: string;
   booking: Booking = new Booking();
   customer: Customer = new Customer();
   amount: number = 800;
   data: any;
   constructor(private cancelService: CancelBookingService) {}
+
+  ngOnInit(): void {
+    this.id = sessionStorage.getItem('customerId');
+  }
 
   cancel() {
     alert(
