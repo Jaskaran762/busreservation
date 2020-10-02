@@ -44,9 +44,9 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginClick(){
-      console.log(this.login)
+      //console.log(this.login)
       this.loginService.onLogin(this.login).subscribe(data=>{
-        console.log(data);
+        //console.log(data);
         if(data.status == true){
           sessionStorage.setItem( 'customerId', String(data.customerId));
           this.router.navigate(['/dashboard']);
