@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Login } from './login';
+import { LoginStatus } from './loginStatus';
+import { LoginService } from '../Login.service';
 
 import {Router} from '@angular/router';
 
@@ -16,18 +18,20 @@ export class LoginComponent implements OnInit {
   LoginForm : FormGroup;
   submitted = false;
 
+  login : Login=new Login();
+  loginStatus : LoginStatus = new LoginStatus();
+  message : string;
+
+  constructor(private loginService : LoginService, 
+    private fb: FormBuilder,private router: Router) {
+   }
+
   get Email(){
     return this.LoginForm.get('email');
   }
-
   get Password(){
     return this.LoginForm.get('password');
   }
-
-  search:Login=new Login();
-
-  constructor(private fb: FormBuilder,private router: Router) {
-   }
 
   ngOnInit(): void {
     this.LoginForm = this.fb.group({
@@ -36,17 +40,20 @@ export class LoginComponent implements OnInit {
 
       //for password validation
       password: ['', [Validators.required, Validators.minLength(8)]]
-    })
+    });
   }
 
-  onLoginClick() : void{
-    if (this.LoginForm.invalid) {
-      this.LoginForm.markAsTouched();
-  }
-    else{
-      this.LoginForm.markAsTouched();
-      this.router.navigate(["/"])
+  onLoginClick(){
+      //console.log(this.login)
+      this.loginService.onLogin(this.login).subscribe(data=>{
+        //console.log(data);
+        if(data.status == true){
+          sessionStorage.setItem( 'customerId', String(data.customerId));
+          this.router.navigate(['/dashboard']);
+        }
+        else{
+          this.message = data.statusMessage;
+        }
+      })
     }
-  }
-
 }
