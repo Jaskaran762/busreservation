@@ -12,21 +12,28 @@
   </head>
   <body>
     <div class="content">
-      <h3>Resaon for Cancellation?</h3>
+      <h3>Reason for Cancellation?</h3>
       <textarea name="reason" cols="50"></textarea><br /><br />
 
-      <h3>How do you want the booking amount refunded?</h3>
+      <h3>Mode of Refund?</h3>
 
-      <input type="radio" />wallet <input type="radio" /> account charges info
+      <input type="radio" name="modeOfPayment" />wallet
+      <input type="radio" name="modeOfPayment" /> account
 
       <br /><br />
-      <a><button>CONFIRM</button></a>
-      <h4>Do you wish to reschedule?</h4>
-      <!--[routerLink]="['/home]"-->
-      <a><button>YES</button></a>
-      &nbsp;
-      <!--[routerLink]="['/bookings']"-->
-      <a><button>NO</button></a>
+      <a><button type="submit" (click)="cancel()">CONFIRM</button></a>
+      <br />
+      <div *ngIf="data">Your booking is {{ data.statusMessage }}!</div>
+      <br />
+
+      <div *ngIf="data.status == true">
+        <h4>Do you wish to reschedule?</h4>
+        <!--[routerLink]="['/home]"-->
+        <a [routerLink]="['/dashboard']"><button>YES</button></a>
+        &nbsp;
+        <!--[routerLink]="['/bookings']"-->
+        <a [routerLink]="['/dashboard']"><button>NO</button></a>
+      </div>
     </div>
   </body>
 </html>

@@ -1,7 +1,10 @@
 .content {
   margin: 50px;
   position: relative;
-  left: 450px;
+  left: 400px;
+  width: 40%;
+  border: 1px solid black;
+  padding: 50px;
 }
 button {
   background-color: rgb(26, 147, 247);
