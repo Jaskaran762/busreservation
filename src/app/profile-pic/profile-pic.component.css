@@ -1,0 +1,46 @@
+.form{
+    width: 40%;
+    height: 70%;
+    margin: auto;
+    padding: 30px 5px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    margin-top: 5%;
+    text-align: center;
+}
+.input label{
+    text-align: center;
+    display: block;
+    font-size: large;
+    font-weight: 500;
+    margin-bottom: 3%;
+    color: white;
+}
+
+.input input{
+    padding: 10px 20px;
+    border-style: none;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    color: white;
+}
+.input input:hover{
+    cursor: pointer;
+}
+.button button{
+    color: white;
+    background-color: rgb(26, 147, 247);
+    border-style: none;
+    padding: 10px 5px;
+    margin-top: 70px;
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.button button:hover{
+    cursor: pointer;
+    border-style: solid;
+    border-color: white;
+}

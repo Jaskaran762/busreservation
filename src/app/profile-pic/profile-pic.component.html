@@ -1,0 +1,11 @@
+<div class="form">
+    <form (ngSubmit)="upload()">
+        <div class="input">
+            <label>Select your Profile Pic:</label>
+            <input class="inputfile" name= "file" type="file" name="t1" (change)="onFileSelection($event)" />
+        </div>
+        <div class="button">
+            <button type="submit">Upload</button>
+        </div>
+    </form>
+</div>

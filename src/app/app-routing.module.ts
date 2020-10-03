@@ -19,7 +19,11 @@ import { ReservationdetailsComponent } from './reservationdetails/reservationdet
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { WallettopupComponent } from './wallettopup/wallettopup.component';
-
+import { ProfilePicComponent } from './profile-pic/profile-pic.component';
+import { BookinglistComponent} from './bookinglist/bookinglist.component';
+import { ProfileComponent} from './profile/profile.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path:'', redirectTo: "/homepage", pathMatch: 'full'},
@@ -31,7 +35,18 @@ const routes: Routes = [
   { path: "forgotPassword", component: ForgotPasswordComponent},
   { path: "searchBuses", component:SearchBusesComponent},
   { path: "showBuses", component: ShowBusesComponent},
-  { path: "dashboard", component: DashboardComponent},
+  { path: "dashboard", component: DashboardComponent,children:[
+    {path: "",redirectTo:"searchBuses",pathMatch:"full"},
+    {path:"searchBuses", component:SearchBusesComponent},
+    {path: "showBuses", component: ShowBusesComponent},
+    {path:"bookinglist", component:BookinglistComponent},
+    {path:"wallet", component:WalletComponent},
+    {path:"wallet-topup",component:WallettopupComponent},
+    {path:"profile", component:ProfileComponent},
+    {path:"resetpassword",component:PasswordresetComponent},
+    {path: "profile-pic",component:ProfilePicComponent},
+    {path: "editprofile",component:EditProfileComponent}
+  ]},
   { path: 'cancel-booking', component: CancelBookingComponent },
   { path: 'reset-password', component: PasswordresetComponent },
   { path: 'dashboard', component: DashboardComponent },
