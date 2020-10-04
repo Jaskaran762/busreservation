@@ -5,7 +5,7 @@
 <div id="dashboard">
     <div class="navbar">
         <span class="username">Hello {{username}} </span>
-        <span><button routerLink="/homepage">Logout</button></span>
+        <span><button (click)="clearSession()" routerLink="/homepage">Logout</button></span>
     </div>
     <div class="w3-sidebar sidebar w3-bar-block">
         <span [routerLink]="['./searchBuses']" class="sidebar">

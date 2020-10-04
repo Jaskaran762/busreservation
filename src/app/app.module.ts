@@ -64,11 +64,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
      ContactUsComponent,
      WallettopupComponent,
      ProfilePicComponent,
-     EditProfileComponent,
-  
-
-     
-    
+     EditProfileComponent
   ],
   imports: [
     BrowserModule,

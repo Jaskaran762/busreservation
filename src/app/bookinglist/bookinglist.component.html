@@ -16,14 +16,13 @@
             <td>{{booking.bookingId}}</td>
             <td>{{booking.busName}}</td>
             <td>{{booking.busId}}</td>
-            <td>{{booking.from}}</td>
-            <td>{{booking.to}}</td>
-            <td>{{booking.bookingDate|date:'yyyy-mm-dd'}}</td>
-            <td>{{booking.bookingtime}}</td>
+            <td>{{booking.journeyStartPos}}</td>
+            <td>{{booking.journeyEndPos}}</td>
+            <td>{{booking.dateOfTravel}}</td>
+            <td>{{booking.timeOfTravel}}</td> 
             <td>{{booking.noOfBookings}}</td>
             <td><button class="button">Print</button></td>
-            <td><button class="button" routerLink="/cancel-booking">Cancel</button></td>
+            <td><button class="button" *ngIf="showCancelOrNot(booking.dateOfTravel,booking.bookingId)" routerLink="/cancel-booking">Cancel</button></td>
         </tr>
     </table>
-
 </div>

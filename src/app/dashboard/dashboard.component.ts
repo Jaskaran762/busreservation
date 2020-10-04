@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  username:string="User";
+  username:String="User";
   
-  constructor() { }
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
+    this.getUser();
+  }
+  clearSession(){
+    sessionStorage.clear();
+  }
+  getUser(){
+    this.profileService.getUserName(parseInt(sessionStorage.getItem("customerId")))
+    .subscribe(results =>this.username = results);
   }
 }
 // this is a push for git

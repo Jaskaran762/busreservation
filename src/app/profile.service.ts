@@ -23,6 +23,10 @@ export class ProfileService {
     let url= "http://localhost:8181/addPic";
     return this.http.post(url, formData);
   }
+  getUserName(customerId:number){
+    let url = 'http://localhost:8181/getUserName?customerId='+customerId;
+    return this.http.get(url,{responseType: 'text'});
+  }
 }
 
 export class ProfileStatus{
