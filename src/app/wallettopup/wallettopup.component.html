@@ -1,20 +1,23 @@
 <div class="container">
-    <div class="c1">
-        <div class="amount">
-            <label for="recharge">Enter amount</label>
-            <input type="number" />
-        </div>
-        <div class="payment">
-            <h3>Mode of Payment</h3>
-            <span>Enter card details</span>
-
-            <label for="cardno">Card No</label>
-            <input type="text" placeholder="XXXX XXXX XXXX 1234" />
-
-            <label for="cvv">CVV</label>
-            <input type="number" />
-
-            <button>Continue</button>
-        </div>
+  <div class="c1">
+    <div class="amount">
+      <label for="recharge">Enter amount</label>
+      <input #amt type="number" name="amt" />
     </div>
+    <div class="payment">
+      <h3>Enter card details</h3>
+      <label for="cardno">Card No</label>
+      <input disabled type="text" placeholder="XXXX XXXX XXXX 1234" />
+
+      <label for="cvv">CVV</label>
+      <input type="number" required />
+
+      <button (click)="onclick(amt.value)">Continue</button>
+      <div *ngIf="walletPage">
+        <a [routerLink]="['/wallet']"
+          ><button>GO BACK TO WALLET PAGE</button></a
+        >
+      </div>
+    </div>
+  </div>
 </div>

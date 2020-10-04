@@ -1,66 +1,69 @@
-.container{
-    width: 30%;
-    height: 500px;
-    margin: auto;
-    font-size: large;
-    font-weight: 300;
-    border-width: 1px;
-    margin-top: 5%;
-    color: rgb(26, 147, 247);
-    margin-top: 0%;
-    padding-top: 3%;
+.container {
+  width: 30%;
+  height: 500px;
+  margin: auto;
+  font-size: large;
+  font-weight: 300;
+  border-width: 1px;
+  margin-top: 5%;
+  color: rgb(26, 147, 247);
+  margin-top: 0%;
+  padding-top: 3%;
 }
-.container .c1{
-    border-style: solid;
-    border-color: rgb(26, 147, 247);
-    border-width: 1px;
-    padding-bottom: 5%;
+.container .c1 {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  padding-bottom: 5%;
 }
-.amount{
-    margin: 20px 10% 70px 10%;
+.amount {
+  margin: 20px 10% 70px 10%;
 }
-.payment{
-    margin-left: 10%;
-    margin-right: 10%;
+.payment {
+  margin-left: 10%;
+  margin-right: 10%;
 }
-.amount label{
-    display: block;
+.amount label {
+  display: block;
 }
-.payment label,.payment span{
-    display: block;
-    padding-top: 30px;
+.payment label,
+.payment span {
+  display: block;
+  padding-top: 30px;
 }
-.amount input,.payment input{
-    padding: 5px 30px;
-    border-style: none;
-    border-bottom: solid rgb(26, 147, 247);
-    border-width: 1px;
-    display: block;
-    width: 100%;
+.amount input,
+.payment input {
+  padding: 5px 30px;
+  border-style: none;
+  border-bottom: solid rgb(26, 147, 247);
+  border-width: 1px;
+  display: block;
+  width: 100%;
 }
-.amount input:hover,.payment input:hover{
-    border-color: blue;
+.amount input:hover,
+.payment input:hover {
+  border-color: blue;
 }
-.amount input:focus,.payment input:focus{
-    border-color: blue;
-    outline: none;
-    
+.amount input:focus,
+.payment input:focus {
+  border-color: blue;
+  outline: none;
 }
-.payment button{
-    margin-top: 20px;
-    cursor: pointer;
-    color: white;
-    text-align: center;
-    width: 100%;
-    background-color: rgb(26, 147, 247);
-    border-style: solid;
-    border-width: 1px;
-    padding: 5px 10%;
+.payment button {
+  margin-top: 20px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  width: 100%;
+  background-color: rgb(26, 147, 247);
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px 10%;
 }
-.payment button:hover{
-    cursor: pointer;
-    background-color: blue;
-    text-align: center;
-    border-color: lightblue;
-    color: white;
+.payment button:hover {
+  cursor: pointer;
+  background-color: blue;
+  text-align: center;
+  border-color: lightblue;
+  color: white;
 }

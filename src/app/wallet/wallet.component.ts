@@ -7,12 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WalletComponent implements OnInit {
   @Input() amount: number;
+  amt: number = 0;
   balance: number = 50;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.balance = this.balance + this.amount;
+    this.amt = parseInt(sessionStorage.getItem('amt'));
+    this.balance = this.balance + this.amt;
   }
 
   get bal() {
