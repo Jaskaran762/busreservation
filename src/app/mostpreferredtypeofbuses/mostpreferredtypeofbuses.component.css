@@ -117,3 +117,7 @@ body {
 .routes tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
+.button-change {
+    left: 550
+}

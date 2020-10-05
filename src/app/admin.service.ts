@@ -26,7 +26,7 @@ export class AdminService {
     return this.http.post<any[]>(url,"");
   }
   onProfitInAMonth(n:number) : Observable<number>{
-    let url = "http://localhost:9292//lastmonthrecordsandprofit"+n;
+    let url = "http://localhost:9292//lastmonthrecordsandprofit?month="+n;
     return this.http.get<number>(url);
   }
 
