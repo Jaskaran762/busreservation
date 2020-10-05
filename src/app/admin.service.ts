@@ -12,17 +12,17 @@ export class AdminService {
 
   constructor( private http : HttpClient) { }
   onfrequentRoutes() : Observable<FrequentRoutes[]>{
-    let url = "http://localhost:9292//frequentlytravelledroutes";
+    let url = "http://localhost:8181//frequentlytravelledroutes";
     return this.http.post<FrequentRoutes[]>(url,"");
   }
 
   onCustomersWithoutBookings() : Observable<Customer[]>{
-    let url = "http://localhost:9292/customerswithoutbooking";
+    let url = "http://localhost:8181/customerswithoutbooking";
     return this.http.post<Customer[]>(url,"");
   }
   
   onmostPreferredBuses() : Observable<any[]>{
-    let url = "http://localhost:9292/mostpreferredtypeofbuses";
+    let url = "http://localhost:8181/mostpreferredtypeofbuses";
     return this.http.post<any[]>(url,"");
   }
   onProfitInAMonth(n:number) : Observable<number>{
