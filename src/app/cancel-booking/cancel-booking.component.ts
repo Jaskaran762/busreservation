@@ -11,21 +11,21 @@ export class CancelBookingComponent implements OnInit {
   id: number;
   booking: Booking = new Booking();
   customer: Customer = new Customer();
-  bookingId: number = 4;
+  bookingId: number;
   amount: number = 500;
   data: any;
   constructor(private cancelService: CancelBookingService) {}
 
   ngOnInit(): void {
     this.id = parseInt(sessionStorage.getItem('customerId'));
+    this.bookingId= parseInt(sessionStorage.getItem('bookingId'));
   }
 
   cancel() {
     alert(
       'Your booking ' +
         this.bookingId +
-        ' is cancelled.  Rs.' +
-        this.amount +
+        ' is cancelled and amount'+
         ' is refunded to your wallet'
     );
     this.cancelService
