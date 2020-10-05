@@ -22,14 +22,17 @@ export class BookinglistComponent implements OnInit {
     let date: Date = new Date();
     let bookingDate = new Date(dateOfTravel.valueOf());
     if(date.getFullYear()>bookingDate.getFullYear()){
+      sessionStorage.setItem('bookingId',String(bookId));
       return true;
     }
     else if(date.getFullYear()==bookingDate.getFullYear()){
+      sessionStorage.setItem('bookingId',String(bookId));
       if(date.getMonth()>date.getMonth()){
         return true;
       }
       else if(date.getMonth()==bookingDate.getMonth()){
         if(date.getDate()>bookingDate.getDate()){
+          sessionStorage.setItem('bookingId',String(bookId));
           return true;
         }
         else

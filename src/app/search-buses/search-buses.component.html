@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!showList">
     <h1 align="center">Online Ticket booking</h1>
     <form (ngSubmit)="searchBuses()"> 
         <input type="text" placeholder="Enter source" name="t1" [(ngModel)]=search.source ><br>
