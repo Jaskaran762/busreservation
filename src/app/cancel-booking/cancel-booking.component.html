@@ -14,18 +14,37 @@
     <div class="content">
       <h3>Reason for Cancellation?</h3>
       <textarea name="reason" cols="50"></textarea><br /><br />
-      {{ id }}
-      <h3>Mode of Refund?</h3>
 
-      <input type="radio" name="modeOfPayment" />wallet
-      <input type="radio" name="modeOfPayment" /> account
-
-      <br /><br />
-      <a><button type="submit" (click)="cancel()">CONFIRM</button></a>
-      <br />
-      <div *ngIf="data">Your booking is {{ data.statusMessage }}!</div>
+      <h5>
+        The booking amount: Rs.{{ amount }} will be refunded to your account
+        wallet
+      </h5>
       <br />
 
+      <div *ngIf="data">
+        {{ data.status }}
+        {{ data.statusMessage }}
+        {{ data.customerId }}
+      </div>
+
+      <a><button type="submit" (click)="cancel()">CONFIRM</button></a><br />
+      <br />
+      <div *ngIf="data">
+        <h5>
+          Your booking with booking id {{ bookingId }} for {{ id }}
+          {{ data.statusMessage }}!
+        </h5>
+      </div>
+
+      <div *ngIf="data.status == false">
+        <h5 style="color: red">
+          Please register first, in order to receive refund amount.<br /><br />
+          <a [routerLink]="['/signup']"
+            ><button style="width: auto">Sign up here</button></a
+          >
+        </h5>
+      </div>
+      <br />
       <div *ngIf="data.status == true">
         <h4>Do you wish to reschedule?</h4>
         <!--[routerLink]="['/home]"-->
@@ -37,4 +56,3 @@
     </div>
   </body>
 </html>
-<app-wallet amount="{{ amount }}"></app-wallet>
