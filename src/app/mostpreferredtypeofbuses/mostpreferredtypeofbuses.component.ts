@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-mostpreferredtypeofbuses',
@@ -10,8 +11,10 @@ import { Router } from '@angular/router';
 export class MostpreferredtypeofbusesComponent implements OnInit {
 
   dropdown: any;
+  public mostPreferredBus:Array<any> = []
 
-  constructor(private router: Router) { this.dropdown = document.getElementsByClassName("dropdown-btn"); }
+  constructor(private router: Router,private service:AdminService
+    ) { this.dropdown = document.getElementsByClassName("dropdown-btn"); }
 
 
   ngOnInit(): void {
@@ -26,5 +29,11 @@ export class MostpreferredtypeofbusesComponent implements OnInit {
         }
       });
     }
+  }
+  mostPreferredBuses(){
+    this.service. onmostPreferredBuses().subscribe(Response=>{this.mostPreferredBus=Response;
+    alert(JSON.stringify(this.mostPreferredBus))})
+    
+
   }
 }

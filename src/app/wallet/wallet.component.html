@@ -1,8 +1,8 @@
 <div class="wallet">
-    <div class="container">
-        <span>Your balance : {{balance|currency:'INR'}}</span>
-    </div>
-    <div class="update">
-        <button (click)="rechargeWallet()" routerLink="/wallettopup">TopUp</button>
-    </div>
+  <div class="container">
+    <span>Your balance : {{ balance | currency: "INR" }}</span>
+  </div>
+  <div class="update">
+    <button (click)="rechargeWallet()" routerLink="/wallettopup">TopUp</button>
+  </div>
 </div>

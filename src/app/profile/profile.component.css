@@ -7,32 +7,40 @@
 .profile{
     margin-top: 4%;
 }
+
+
+
 .container{
     float: left;
     font-size: larger;
     font-weight: 300;
     color: rgb(49, 43, 43);
+    
 }
 .info{
     margin-top: 5%;
     text-align: center;
 }
 .info .span{
-    color:  rgb(243, 144, 13);
+    color:  white;
     text-align: center;
-    padding-left: 30px;
+    padding-left: 5px;
+    font-size: 23px;
+    font-weight: 300;
 }
 .secondcol{
-    margin-top: 3%;
+    margin-top: 1%;
     font-size: larger;
     font-weight: 300;
     color: rgb(49, 43, 43);
     margin-left: 10%;
+    font-size: 25px;
+    font-weight: 300;
 }
 
 .row1 div{
-    margin-top: 3%;
-    margin-left: 3%;
+    margin-top: 1%;
+    margin-left: 7%;
     display: inline-block;
     width: 400px;
 }
@@ -40,63 +48,22 @@
     width: 300px;
 }
 .row1 div .span{
-    width: 300px;
-    padding-right: 100px;
-    color: rgb(243, 144, 13);
-}
-
-.row2{
-    margin-top: 1%;
-}
-.row2 .entry{
-    margin-top: 15px;
-    margin-left: 10%;
-    display: inline-block;
     width: 400px;
-}
-.row2 .entry .span{
     padding-right: 100px;
-    color: rgb(243, 144, 13);
-    
+    color: white;
+    display: block;
+    margin-bottom: 10px;
 }
-.row2 .entry input{
-    margin-top: 2%;
-    padding: 12px 20px;
-    width: 60%;
-}
-
-.row2 .entry input:hover{
-    border-style: none;
-    border-color: rgb(124, 203, 230);
-    border-style: solid;
-}
-.row2 .entry input:focus{
-    border-color: rgb(126, 201, 226);
-    outline: none;
-    border-style: solid;
-}
-.row2 .entry input[type="radio"]{
-    margin-top: 2%;
-    padding: 7px 15px ;
-    width: auto;
-
-}
-
-.row2 .entry small{
-    clear: both;
-    position: fixed;
-}
-
 
 .row3 div{
-    margin-top: 3%;
-    margin-left: 3%;
+    margin-top: 1%;
+    margin-left: 7%;
     display: inline-block;
     width: 400px;
 }
-.span{
-    padding-right: 100px;
-    color: rgb(243, 144, 13);
+.row3 .span{
+    display: block;
+    color: white;
 }
 
 
@@ -112,6 +79,7 @@
     color: white;
     border-color: white;
     padding: 20px;
+    margin-right: 10px;
 }
 .update button:hover{
     cursor: pointer;

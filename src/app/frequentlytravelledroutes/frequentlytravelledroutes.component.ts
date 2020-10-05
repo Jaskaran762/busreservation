@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 //import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
+import { AdminService } from '../admin.service';
+import { FrequentRoutes } from '../frequent-routes';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-frequentlytravelledroutes',
@@ -11,14 +15,15 @@ import { Router } from '@angular/router';
 })
 export class FrequentlytravelledroutesComponent implements OnInit{
 
-  dropdown: any;
-
+    dropdown: any;
+    public frequentRoute: Array<FrequentRoutes> = [];
+  
   constructor(
     private router: Router, // inject router
    // private httpService: HttpService, // inject http service
-    private fb: FormBuilder // inject form build class object
+    private fb: FormBuilder, // inject form build class object
    // inject router
-    
+    private service:AdminService
   ) { this.dropdown = document.getElementsByClassName("dropdown-btn"); }
 
 
@@ -35,4 +40,11 @@ export class FrequentlytravelledroutesComponent implements OnInit{
       });
     }
   }
+  frequentRoutes(){this.service.onfrequentRoutes().subscribe(Response=>{
+    this.frequentRoute=Response;alert(JSON.stringify(this.frequentRoute))})
+    
+
+  }
 }
+
+

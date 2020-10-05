@@ -13,7 +13,16 @@ export class HomepageComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('customerId')){
+      this.show = false;
+    }
+    else{
+      this.show = true;
+    }
   }
+
+
+
 
   
 }

@@ -32,7 +32,8 @@ import { ReservationdetailsComponent } from './reservationdetails/reservationdet
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { WallettopupComponent } from './wallettopup/wallettopup.component';
-
+import { ProfilePicComponent } from './profile-pic/profile-pic.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -62,10 +63,8 @@ import { WallettopupComponent } from './wallettopup/wallettopup.component';
      AboutUsComponent,
      ContactUsComponent,
      WallettopupComponent,
-  
-
-     
-    
+     ProfilePicComponent,
+     EditProfileComponent
   ],
   imports: [
     BrowserModule,

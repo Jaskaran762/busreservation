@@ -77,3 +77,43 @@ body {
     float: right;
     padding-right: 8px;
 }
+
+.routes {
+    position: absolute;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+    left: 600px;
+}
+
+.routes td,
+.routes th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.routes td,
+.routes th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.routes tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.routes tr:hover {
+    background-color: #ddd;
+}
+
+.routes th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: lightblue;
+    color: white;
+}
+
+.routes tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

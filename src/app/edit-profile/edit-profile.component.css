@@ -1,0 +1,82 @@
+.row2{
+    margin-top: 1%;
+}
+.row2 .entry{
+    margin-top: 15px;
+    margin-left: 10%;
+    display: inline-block;
+    width: 400px;
+}
+.row2 .entry .span{
+    padding-right: 100px;
+    color: white;
+    display: block;
+    
+}
+.row2 .entry input{
+    margin-top: 2%;
+    padding: 12px 20px;
+    width: 90%;
+    background-color: inherit;
+    border-style: none;
+    border-style: solid;
+    border-color: rgb(78, 74, 74);
+    border-width: 1px;
+    color: black;
+}
+
+.row2 .entry input:hover{
+    border-style: none;
+    border-style: solid;
+}
+.row2 .entry input:focus{
+    outline: none;
+    border-style: solid;
+}
+.row2 .entry input[type="radio"]{
+    margin: 0px;
+    width: 10%;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.row2 .entry small{
+    clear: both;
+    position: fixed;
+}
+
+.update{
+    clear: both;
+    margin: 2% 35%;
+    font-size: larger;
+    font-weight: 300;
+}
+.update button{
+    background-color: rgb(26, 147, 247);
+    border-radius: 5px;
+    color: white;
+    border-color: white;
+    padding: 20px;
+    margin-right: 10px;
+}
+.update button:hover{
+    cursor: pointer;
+    padding: 23px;
+    color: rgb(197, 176, 176);
+}
+
+.hidden{
+    display: none;
+}
+
+.is-invalid{
+    border-color: red;
+}
+
+.text-danger{
+    color: red;
+}
+
+.span input[type="radio"]{
+    padding-right:50px ;
+}

@@ -15,9 +15,22 @@
         <div class="dropdown-container">
             <a [routerLink]="['/frequentlytravelledroutes']">Frequently travelled routes</a>
             <a [routerLink]="['/lastmonthrecordsandprofit']">Last month record and profits</a>
-            <a [routerLink]="['/mostpreferredtypeofbuses']">Most preferred types of buses</a>
-            <a [routerLink]="['/registeredcustomerbutnoreservation']">Customer who have registered but not made any reservation</a>
-            <a [routerLink]="['/reservationdetails']">Reservation details of customers (daily, weekly, monthly basis)</a>
+            <a [routerLink]="['/mostpreferredtypeofbuses']" (click)='mostPreferredBuses()'>Most preferred types of buses</a>
+            <a [routerLink]="[ '/registeredcustomerbutnoreservation'] ">Customer who have registered but not made any reservation</a>
+            <a [routerLink]="[ '/reservationdetails'] ">Reservation details of customers (daily, weekly, monthly basis)</a>
         </div>
+    </div>
+    <div class="table-list">
+        <table class="routes">
+            <tr>
+                <th>Bus-Type</th>
+                <th>Bookings</th>
+
+            </tr>
+            <tr *ngFor="let mostPreferred of mostPreferredBus">
+                <td>{{mostPreferred[1]}}</td>
+                <td>{{mostPreferred[0]}}</td>
+            </tr>
+        </table>
     </div>
 </body>

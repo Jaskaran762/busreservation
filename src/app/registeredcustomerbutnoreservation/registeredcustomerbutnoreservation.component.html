@@ -16,8 +16,27 @@
             <a [routerLink]="['/frequentlytravelledroutes']">Frequently travelled routes</a>
             <a [routerLink]="['/lastmonthrecordsandprofit']">Last month record and profits</a>
             <a [routerLink]="['/mostpreferredtypeofbuses']">Most preferred types of buses</a>
-            <a [routerLink]="['/registeredcustomerbutnoreservation']">Customer who have registered but not made any reservation</a>
+            <a [routerLink]="['/registeredcustomerbutnoreservation'] " (click)='customersWithoutReservation()'>Customer who have registered but not made any reservation</a>
             <a [routerLink]="['/reservationdetails']">Reservation details of customers (daily, weekly, monthly basis)</a>
         </div>
+    </div>
+
+    <div class="table-list">
+        <table class="routes">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email ID</th>
+                <th>Mobile Number</th>
+
+            </tr>
+            <tr *ngFor="let customer of customerWithoutReservation">
+                <td>{{customer.id}}</td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.emailId}}</td>
+                <td>{{customer.mobileNo}}</td>
+
+            </tr>
+        </table>
     </div>
 </body>
