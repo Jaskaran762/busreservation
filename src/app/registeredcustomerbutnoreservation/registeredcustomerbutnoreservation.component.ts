@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Customer } from '../cancel-booking/cancel-booking.component';
+import { AdminService } from '../admin.service';
+
 
 @Component({
   selector: 'app-registeredcustomerbutnoreservation',
@@ -9,8 +12,10 @@ import { Router } from '@angular/router';
 export class RegisteredcustomerbutnoreservationComponent implements OnInit {
  
   dropdown: any;
+  public customerWithoutReservation:Array<Customer> = []
 
-  constructor(private router: Router,) { this.dropdown = document.getElementsByClassName("dropdown-btn"); }
+  constructor(private router: Router,
+    private service:AdminService) { this.dropdown = document.getElementsByClassName("dropdown-btn"); }
 
 
   ngOnInit(): void {
@@ -25,5 +30,11 @@ export class RegisteredcustomerbutnoreservationComponent implements OnInit {
         }
       });
     }
+  }
+  customersWithoutReservation(){
+    this.service. onCustomersWithoutBookings().subscribe(Response=>{this.customerWithoutReservation=Response;
+    alert(JSON.stringify(this.customerWithoutReservation))})
+    
+
   }
 }

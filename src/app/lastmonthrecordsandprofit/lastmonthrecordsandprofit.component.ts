@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-lastmonthrecordsandprofit',
@@ -9,9 +10,11 @@ import { Router } from '@angular/router'
 export class LastmonthrecordsandprofitComponent implements OnInit {
 
   dropdown: any;
-
+  profit: number;
+  month:number;
   constructor(
     private router: Router,
+    private service:AdminService
   ) { this.dropdown = document.getElementsByClassName("dropdown-btn"); }
 
 
@@ -27,6 +30,13 @@ export class LastmonthrecordsandprofitComponent implements OnInit {
         }
       });
     }
+   
+  
+    }
+    profitInAMonth(){
+      this.service. onProfitInAMonth(this.month).subscribe(Response=>{this.profit=Response;
+      alert(JSON.stringify(this.profit))})
+      
   }
-
 }
+
