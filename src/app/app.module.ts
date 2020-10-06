@@ -69,11 +69,8 @@ import { TicketComponent } from './ticket/ticket.component';
      WallettopupComponent,
      ProfilePicComponent,
      EditProfileComponent,
-<<<<<<< HEAD
-     PassengerComponent
-=======
+     PassengerComponent,
      TicketComponent
->>>>>>> 6cbf40cd8a2394cd4bbaa53add34b3e4b60a530b
   ],
   imports: [
     BrowserModule,
