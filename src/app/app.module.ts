@@ -35,6 +35,9 @@ import { WallettopupComponent } from './wallettopup/wallettopup.component';
 import { ProfilePicComponent } from './profile-pic/profile-pic.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { PassengerComponent } from './passenger/passenger.component';
+import { TicketComponent } from './ticket/ticket.component';
+
+
 
 
 @NgModule({
@@ -66,7 +69,11 @@ import { PassengerComponent } from './passenger/passenger.component';
      WallettopupComponent,
      ProfilePicComponent,
      EditProfileComponent,
+<<<<<<< HEAD
      PassengerComponent
+=======
+     TicketComponent
+>>>>>>> 6cbf40cd8a2394cd4bbaa53add34b3e4b60a530b
   ],
   imports: [
     BrowserModule,

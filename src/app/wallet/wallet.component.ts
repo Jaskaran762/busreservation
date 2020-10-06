@@ -6,15 +6,19 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./wallet.component.css'],
 })
 export class WalletComponent implements OnInit {
-  @Input() amount: number;
+  refundAmount: number;
   amt: number = 0;
+  paymentAmount: number = 0;
   balance: number = 50;
 
   constructor() {}
 
   ngOnInit(): void {
     this.amt = parseInt(sessionStorage.getItem('amt'));
-    this.balance = this.balance + this.amt;
+    this.paymentAmount = parseInt(sessionStorage.getItem('paymentAmount')); //on payment -
+    this.refundAmount = parseInt(sessionStorage.getItem('refundAmount')); //on cancel +
+    //this.balance = this.balance + this.amt; //on wallet recharge +
+    sessionStorage.setItem('walletBalance', String(this.balance));
   }
 
   get bal() {
