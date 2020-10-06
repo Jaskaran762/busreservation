@@ -1,0 +1,47 @@
+<div class="pageContent">
+  <h4>YOUR TICKET IS BOOKED FOR "TRAVEL_DATE"</h4>
+  <button (click)="view()">CLICK HERE TO VIEW</button><br /><br />
+  <div *ngIf="viewTicket">
+    <div class="ticket">
+      <h3>"BusName" Travels</h3>
+      <hr />
+      <table>
+        <tr>
+          <td>Route :</td>
+          <td>"______to_________"</td>
+        </tr>
+        <tr>
+          <td>Bus No :</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>PNR(booking id) :</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Seats :</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Bus Name :</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Date Of Travel :</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Time Of Departure :</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Total Fare:</td>
+          <td>Rs.{{ totalFare }}</td>
+        </tr>
+      </table>
+      <hr />
+      <button>Print</button>
+    </div>
+    <h2>HAPPY JOURNEY!!</h2>
+  </div>
+</div>

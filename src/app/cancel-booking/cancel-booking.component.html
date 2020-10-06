@@ -15,10 +15,7 @@
       <h3>Reason for Cancellation?</h3>
       <textarea name="reason" cols="50"></textarea><br /><br />
 
-      <h5>
-        The booking amount  will be refunded to your account
-        wallet
-      </h5>
+      <h5>The booking amount will be refunded to your account wallet</h5>
       <br />
 
       <div *ngIf="data">
@@ -36,6 +33,7 @@
         </h5>
       </div>
 
+      <!--check with id-->
       <div *ngIf="data.status == false">
         <h5 style="color: red">
           Please register first, in order to receive refund amount.<br /><br />
