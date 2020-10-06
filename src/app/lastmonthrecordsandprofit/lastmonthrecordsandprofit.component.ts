@@ -35,7 +35,7 @@ export class LastmonthrecordsandprofitComponent implements OnInit {
     }
     profitInAMonth(){
       this.service. onProfitInAMonth(this.month).subscribe(Response=>{this.profit=Response;
-      alert(JSON.stringify(this.profit))})
+      })
       
   }
 }

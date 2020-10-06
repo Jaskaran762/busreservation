@@ -6,5 +6,6 @@ export class ShowBusDto{
     public seats : number;
     public status : String;
     public type : String;
-
+    public departureTime: String;
+    public arrivalTime: String;
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { SearchBusDto } from './search-bus-dto';
 import { Router } from '@angular/router';
 import { SearchBusService } from '../search-bus.service';
 import { ShowBusDto } from '../show-buses/show-bus-dto';
+import { Capabilities } from 'protractor';
 
 @Component({
   selector: 'app-search-buses',
@@ -12,11 +14,34 @@ import { ShowBusDto } from '../show-buses/show-bus-dto';
 export class SearchBusesComponent implements OnInit {
 
   search : SearchBusDto = new SearchBusDto();
+  searchForm : FormGroup;
   showList : boolean = false;
   showBus : ShowBusDto[];
-  constructor( private router : Router, private searchBusService : SearchBusService) { }
+  stops : {};
+
+  constructor( private router : Router, private searchBusService : SearchBusService, private fb: FormBuilder){ }
+
+  get Src(){
+    return this.searchForm.get("src");
+  }
+
+  get Dst(){
+    return this.searchForm.get("dst");
+  }
 
   ngOnInit(): void {
+    this.searchForm = this.fb.group({
+      // for source validation
+        src: ['', [Validators.required]],
+
+      //for destination validation
+        dst: ['', [Validators.required]]
+    });
+
+    this.searchBusService.listStops().subscribe((data) => {
+      this.stops= data
+    });
+
   }
 
   searchBuses(){
@@ -33,6 +58,10 @@ export class SearchBusesComponent implements OnInit {
   bus : ShowBusDto;
   show(b:ShowBusDto){
     this.bus = b;
+    sessionStorage.setItem('source',String(this.search.source));
+    sessionStorage.setItem('destination', String(this.search.destination));
+    sessionStorage.setItem('travelDate', String(this.search.travelDate));
+
     sessionStorage.setItem('id',String(b.id));
     sessionStorage.setItem('busName',String(b.busName));
     sessionStorage.setItem('busNumber',String(b.busNumber));
@@ -42,7 +71,7 @@ export class SearchBusesComponent implements OnInit {
     sessionStorage.setItem('type',String(b.type));
   }
 
-  hide(){
-    this.showList = false;
+  sendDto(){
+    this.searchBusService.sendBusDto(this.search);
   }
 }

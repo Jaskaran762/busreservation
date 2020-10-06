@@ -34,6 +34,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { WallettopupComponent } from './wallettopup/wallettopup.component';
 import { ProfilePicComponent } from './profile-pic/profile-pic.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { PassengerComponent } from './passenger/passenger.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
      ContactUsComponent,
      WallettopupComponent,
      ProfilePicComponent,
-     EditProfileComponent
+     EditProfileComponent,
+     PassengerComponent
   ],
   imports: [
     BrowserModule,

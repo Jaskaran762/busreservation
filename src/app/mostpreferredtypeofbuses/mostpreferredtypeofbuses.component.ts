@@ -32,7 +32,7 @@ export class MostpreferredtypeofbusesComponent implements OnInit {
   }
   mostPreferredBuses(){
     this.service. onmostPreferredBuses().subscribe(Response=>{this.mostPreferredBus=Response;
-    alert(JSON.stringify(this.mostPreferredBus))})
+    })
     
 
   }
