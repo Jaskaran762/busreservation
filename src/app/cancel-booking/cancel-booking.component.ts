@@ -9,31 +9,33 @@ import { Router } from '@angular/router';
 })
 export class CancelBookingComponent implements OnInit {
   id: number;
+  clicked: boolean;
+  notRegistered: boolean;
+  registered: boolean;
+  status: boolean;
   booking: Booking = new Booking();
-  customer: Customer = new Customer();
   bookingId: number;
   amount: number = 500;
-  data: any;
+  data: Data = new Data();
   constructor(private cancelService: CancelBookingService) {}
 
   ngOnInit(): void {
     this.id = parseInt(sessionStorage.getItem('customerId'));
-    this.bookingId= parseInt(sessionStorage.getItem('bookingId'));
+    this.bookingId = parseInt(sessionStorage.getItem('bookingId'));
+    if (isNaN(this.id)) {
+      this.notRegistered = true;
+    } else {
+      this.registered = true;
+    }
   }
 
   cancel() {
-    alert(
-      'Your booking ' +
-        this.bookingId +
-        ' is cancelled and amount'+
-        ' is refunded to your wallet'
-    );
+    this.clicked = true;
     this.cancelService
       .cancel(this.id, this.bookingId)
       .subscribe((response) => (this.data = response));
   }
 }
-
 export class Customer {
   id: number;
   address: string;
@@ -41,10 +43,13 @@ export class Customer {
   name: string;
   email: string;
   mobileNo: string;
-
   password: string;
 }
-
+export class Data {
+  status: boolean;
+  statusMessage: string;
+  customerId: number;
+}
 export class Booking {
   bookingId: number;
 }

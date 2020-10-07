@@ -36,6 +36,8 @@ import { ProfilePicComponent } from './profile-pic/profile-pic.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { AfterResetPasswordComponent } from './after-reset-password/after-reset-password.component';
+import { OtpComponent } from './otp/otp.component';
 
 
 
@@ -70,7 +72,9 @@ import { TicketComponent } from './ticket/ticket.component';
      ProfilePicComponent,
      EditProfileComponent,
      PassengerComponent,
-     TicketComponent
+     TicketComponent,
+     AfterResetPasswordComponent,
+     OtpComponent
   ],
   imports: [
     BrowserModule,

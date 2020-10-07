@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { WalletService } from '../wallet.service';
 
 @Component({
   selector: 'app-wallet',
@@ -10,15 +11,17 @@ export class WalletComponent implements OnInit {
   amt: number = 0;
   paymentAmount: number = 0;
   balance: number = 50;
+  customerId: number;
 
-  constructor() {}
+  constructor(private walletService: WalletService) {}
 
   ngOnInit(): void {
-    this.amt = parseInt(sessionStorage.getItem('amt'));
-    this.paymentAmount = parseInt(sessionStorage.getItem('paymentAmount')); //on payment -
-    this.refundAmount = parseInt(sessionStorage.getItem('refundAmount')); //on cancel +
-    //this.balance = this.balance + this.amt; //on wallet recharge +
-    sessionStorage.setItem('walletBalance', String(this.balance));
+    this.customerId = parseInt(sessionStorage.getItem('customerId'));
+    this.walletService.showWallet(this.customerId).subscribe((response) => {
+      this.balance = response;
+      console.log(this.balance);
+      sessionStorage.setItem('walletBalance', String(this.balance));
+    });
   }
 
   get bal() {

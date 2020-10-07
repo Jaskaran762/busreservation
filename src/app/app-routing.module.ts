@@ -25,6 +25,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { AfterResetPasswordComponent } from './after-reset-password/after-reset-password.component';
+import { OtpComponent } from './otp/otp.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -54,6 +56,8 @@ const routes: Routes = [
       { path: 'editprofile', component: EditProfileComponent },
     ],
   },
+  { path: 'otp', component: OtpComponent },
+  { path: 'afterReset', component: AfterResetPasswordComponent },
   { path: 'ticket', component: TicketComponent },
   { path: 'cancel-booking', component: CancelBookingComponent },
   { path: 'reset-password', component: PasswordresetComponent },

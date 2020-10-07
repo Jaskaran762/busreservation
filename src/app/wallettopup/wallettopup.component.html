@@ -1,9 +1,8 @@
-
 <div class="container">
   <div class="c1">
     <div class="amount">
       <label for="recharge">Enter amount</label>
-      <input #amt type="number" name="amt" />
+      <input #amt type="number" name="amt" [(ngModel)]="amount" />
     </div>
     <div class="payment">
       <h3>Enter card details</h3>
@@ -13,9 +12,10 @@
       <label for="cvv">CVV</label>
       <input type="number" required />
 
-      <button (click)="onclick(amt.value)">Continue</button>
+      <button (click)="wallet()">RECHARGE</button>
+      {{ msg }}
       <div *ngIf="walletPage">
-        <a [routerLink]="['./wallet']"
+        <a [routerLink]="['/dashboard/wallet']"
           ><button>GO BACK TO WALLET PAGE</button></a
         >
       </div>
