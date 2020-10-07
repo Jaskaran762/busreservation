@@ -1,5 +1,5 @@
 import { Time } from '@angular/common';
-import { Bus } from './show-buses/bus';
+import { Bus } from './bus';
 export class Route {
     arrivalTime:string;
     departureTime:string;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { Route } from '../route';
-import { Bus } from '../show-buses/bus';
+//import { Bus } from '../bus';
 
 @Component({
   selector: 'app-add-stops-for-bus',
