@@ -1,18 +1,95 @@
+<div class="status1">
+  <h5>Your Total Fare is:&nbsp;&nbsp;&nbsp;&nbsp; Rs.{{ amount }}</h5>
+</div>
 <div class="content">
-  <h3>Mode of Payment</h3>
+  <form [formGroup]="userForm">
+    <div *ngIf="notRegistered">
+      Enter Mobile No:
+      <span *ngIf="notRegistered">
+        <span *ngIf="c.mobile.invalid">
+          <span *ngIf="c.mobile.errors.required" class="error"> * </span>
+          <span *ngIf="c.mobile.errors.minlength" class="error">
+            please enter 10 digits
+          </span>
+          <span *ngIf="c.mobile.errors.maxlength" class="error">
+            max 10 digits
+          </span>
+          <span *ngIf="c.mobile.errors.pattern" class="error">
+            letters not allowed
+          </span>
+        </span>
+      </span>
+      <br />
+      <input
+        type="text"
+        placeholder="+91"
+        readonly
+        style="width: 30px"
+      />&nbsp;<input
+        type="text"
+        formControlName="mobile"
+        [(ngModel)]="mobileNo"
+        required
+      />
+    </div>
+
+    <h3>MODE OF PAYMENT</h3>
+    <br />
+
+    <input type="radio" formControlName="card" value="debit" />&nbsp;&nbsp;DEBIT
+    CARD<br />
+    <table>
+      <tr>
+        <td>Card No</td>
+        <td>
+          <input type="text" placeholder="XXXX XXXX XXXX 1234" />
+        </td>
+      </tr>
+      <span *ngIf="c.card.value == 'debit'">
+        <span *ngIf="c.cvv.invalid"
+          ><span *ngIf="c.cvv.errors.required" class="error"
+            >*cvv required</span
+          >
+          <span *ngIf="c.cvv.errors.pattern" class="error"> *digits only </span>
+          <span *ngIf="c.cvv.errors.minlength" class="error"> *3 digits</span>
+          <span *ngIf="c.cvv.errors.maxlength" class="error">
+            *3 digits only</span
+          >
+        </span></span
+      >
+      <tr>
+        <td>CVV</td>
+        <td><input type="text" formControlName="cvv" /></td>
+      </tr>
+    </table>
+
+    <br />
+    <input
+      type="radio"
+      formControlName="card"
+      value="wallet"
+    />&nbsp;&nbsp;WALLET
+  </form>
   <br />
-  <input type="radio" name="card" value="card" />Card <br />
-  <table>
-    <tr>
-      <td>card no</td>
-      <td><input type="text" placeholder="XXXX XXXX XXXX 1234" /></td>
-    </tr>
-    <tr>
-      <td>cvv</td>
-      <td><input type="text" /></td>
-    </tr>
-    <br /><br />
-  </table>
-  <input type="radio" name="card" value="wallet" />Wallet <br /><br />
-  <button>Continue</button>
+  <div *ngIf="c.card.invalid" class="error">
+    <div *ngIf="c.card.errors.required">Please select a mode of payment</div>
+  </div>
+  <button [disabled]="!userForm.valid" type="submit" (click)="pay()">
+    PAY
+  </button>
+</div>
+<br />
+<div class="status">
+  <div *ngIf="data; else notPaid">
+    <h4 style="color: green">
+      Payment successful!!<br />
+      <a routerLink="/ticket"><button>CONTINUE</button></a>
+    </h4>
+  </div>
+  <ng-template #notPaid>
+    <div *ngIf="clicked">
+      <h7 class="error">Payment unsuccessful<br /></h7>
+      <a routerLink="/homepage"><button>TRY AGAIN</button></a>
+    </div>
+  </ng-template>
 </div>

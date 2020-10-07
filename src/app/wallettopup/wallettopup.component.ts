@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WalletService } from '../wallet.service';
 
 @Component({
   selector: 'app-wallettopup',
@@ -8,14 +9,31 @@ import { Component, OnInit } from '@angular/core';
 export class WallettopupComponent implements OnInit {
   message: string;
   walletPage: boolean;
+  amount: number;
+  updatedAmount: number = 0;
+  id: number;
+  msg: string;
+  constructor(private walletService: WalletService) {}
 
-  constructor() {}
+  ngOnInit(): void {
+    this.id = parseInt(sessionStorage.getItem('customerId'));
+  }
 
-  ngOnInit(): void {}
-
-  onclick(amt) {
-    alert('Rs.' + amt + 'has been added to your wallet');
-    sessionStorage.setItem('amt', amt);
-    this.walletPage = true;
+  wallet() {
+    console.log(this.amount);
+    this.walletService.wallet(this.amount, this.id).subscribe((response) => {
+      this.updatedAmount = response;
+      console.log(this.updatedAmount);
+      if (this.updatedAmount != this.amount) {
+        this.msg =
+          'Rs.' +
+          this.amount +
+          'has been added to your wallet. Your current balance is: Rs.' +
+          this.updatedAmount;
+        this.walletPage = true;
+      } else {
+        this.msg = 'Wallet was not updated. Please try again later';
+      }
+    });
   }
 }

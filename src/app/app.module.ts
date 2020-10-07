@@ -39,6 +39,12 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { AddStopsForBusComponent } from './add-stops-for-bus/add-stops-for-bus.component';
 import { MonthlyDetailsComponent } from './monthly-details/monthly-details.component';
 import { AnnualDetailsComponent } from './annual-details/annual-details.component';
+import { PassengerComponent } from './passenger/passenger.component';
+import { TicketComponent } from './ticket/ticket.component';
+import { AfterResetPasswordComponent } from './after-reset-password/after-reset-password.component';
+import { OtpComponent } from './otp/otp.component';
+
+
 
 
 @NgModule({
@@ -74,7 +80,11 @@ import { AnnualDetailsComponent } from './annual-details/annual-details.componen
      AdmindashboardComponent,
      AddStopsForBusComponent,
      MonthlyDetailsComponent,
-     AnnualDetailsComponent
+     AnnualDetailsComponent,
+     PassengerComponent,
+     TicketComponent,
+     AfterResetPasswordComponent,
+     OtpComponent
   ],
   imports: [
     BrowserModule,

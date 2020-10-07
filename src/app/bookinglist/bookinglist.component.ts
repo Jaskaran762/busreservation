@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Booking } from '../booking';
 import { BookingService } from '../booking.service';
+import { TypeScriptEmitter } from '@angular/compiler';
 
 @Component({
   selector: 'app-bookinglist',
@@ -20,12 +21,29 @@ export class BookinglistComponent implements OnInit {
   showCancelOrNot(dateOfTravel:String,bookId:number) {
     let date: Date = new Date();
     let bookingDate = new Date(dateOfTravel.valueOf());
-    if (date >= bookingDate){
-      sessionStorage.setItem('bookingId', String(bookId));
+    if(date.getFullYear()>bookingDate.getFullYear()){
+      sessionStorage.setItem('bookingId',String(bookId));
       return true;
     }
-    else
+    else if(date.getFullYear()==bookingDate.getFullYear()){
+      sessionStorage.setItem('bookingId',String(bookId));
+      if(date.getMonth()>date.getMonth()){
+        return true;
+      }
+      else if(date.getMonth()==bookingDate.getMonth()){
+        if(date.getDate()>bookingDate.getDate()){
+          sessionStorage.setItem('bookingId',String(bookId));
+          return true;
+        }
+        else
+          return false;
+      }
+      else
+        return false;
+    }
+    else{
       return false;
+    }
   }
 
   getBookings() {

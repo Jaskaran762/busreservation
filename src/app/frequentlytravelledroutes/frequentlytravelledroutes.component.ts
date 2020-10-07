@@ -44,7 +44,7 @@ export class FrequentlytravelledroutesComponent implements OnInit{
   }
   
   frequentRoutes(){this.service.onfrequentRoutes().subscribe(Response=>{
-    this.frequentRoute=Response;alert(JSON.stringify(this.frequentRoute))})
+    this.frequentRoute=Response;})
     
 
   }

@@ -9,8 +9,12 @@ import { Customer } from './cancel-booking/cancel-booking.component';
 export class CancelBookingService {
   constructor(private http: HttpClient) {}
 
-  cancel(customer: Customer): Observable<any> {
-    let url = 'http://localhost:8181/cancel';
-    return this.http.post(url, customer);
+  cancel(id: number, bookingId: number): Observable<any> {
+    let url =
+      'http://localhost:8181/cancel?customerId=' +
+      id +
+      '&bookingId=' +
+      bookingId;
+    return this.http.get(url);
   }
 }

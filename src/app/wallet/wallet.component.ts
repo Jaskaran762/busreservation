@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { WalletService } from '../wallet.service';
 
 @Component({
   selector: 'app-wallet',
@@ -6,15 +7,21 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./wallet.component.css'],
 })
 export class WalletComponent implements OnInit {
-  @Input() amount: number;
+  refundAmount: number;
   amt: number = 0;
+  paymentAmount: number = 0;
   balance: number = 50;
+  customerId: number;
 
-  constructor() {}
+  constructor(private walletService: WalletService) {}
 
   ngOnInit(): void {
-    this.amt = parseInt(sessionStorage.getItem('amt'));
-    this.balance = this.balance + this.amt;
+    this.customerId = parseInt(sessionStorage.getItem('customerId'));
+    this.walletService.showWallet(this.customerId).subscribe((response) => {
+      this.balance = response;
+      console.log(this.balance);
+      sessionStorage.setItem('walletBalance', String(this.balance));
+    });
   }
 
   get bal() {
