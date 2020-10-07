@@ -1,14 +1,42 @@
-<div class="status">
-  <h5>Your Total Fare: Rs.{{ amount }}</h5>
+<div class="status1">
+  <h5>Your Total Fare is:&nbsp;&nbsp;&nbsp;&nbsp; Rs.{{ amount }}</h5>
 </div>
 <div class="content">
-  <div *ngIf="notRegistered">
-    Enter Email-Id/PhoneNo:<br /><input type="text" />
-  </div>
-  <h3>MODE OF PAYMENT</h3>
-  <br />
   <form [formGroup]="userForm">
-    <input type="radio" formControlName="card" value="card" />&nbsp;&nbsp;DEBIT
+    <div *ngIf="notRegistered">
+      Enter Mobile No:
+      <span *ngIf="notRegistered">
+        <span *ngIf="c.mobile.invalid">
+          <span *ngIf="c.mobile.errors.required" class="error"> * </span>
+          <span *ngIf="c.mobile.errors.minlength" class="error">
+            please enter 10 digits
+          </span>
+          <span *ngIf="c.mobile.errors.maxlength" class="error">
+            max 10 digits
+          </span>
+          <span *ngIf="c.mobile.errors.pattern" class="error">
+            letters not allowed
+          </span>
+        </span>
+      </span>
+      <br />
+      <input
+        type="text"
+        placeholder="+91"
+        readonly
+        style="width: 30px"
+      />&nbsp;<input
+        type="text"
+        formControlName="mobile"
+        [(ngModel)]="mobileNo"
+        required
+      />
+    </div>
+
+    <h3>MODE OF PAYMENT</h3>
+    <br />
+
+    <input type="radio" formControlName="card" value="debit" />&nbsp;&nbsp;DEBIT
     CARD<br />
     <table>
       <tr>
@@ -17,25 +45,38 @@
           <input type="text" placeholder="XXXX XXXX XXXX 1234" />
         </td>
       </tr>
+      <span *ngIf="c.card.value == 'debit'">
+        <span *ngIf="c.cvv.invalid"
+          ><span *ngIf="c.cvv.errors.required" class="error"
+            >*cvv required</span
+          >
+          <span *ngIf="c.cvv.errors.pattern" class="error"> *digits only </span>
+          <span *ngIf="c.cvv.errors.minlength" class="error"> *3 digits</span>
+          <span *ngIf="c.cvv.errors.maxlength" class="error">
+            *3 digits only</span
+          >
+        </span></span
+      >
       <tr>
         <td>CVV</td>
-        <td><input type="text" /></td>
+        <td><input type="text" formControlName="cvv" /></td>
       </tr>
     </table>
-    <br /><br />
-    <td>
-      <input
-        type="radio"
-        formControlName="card"
-        value="wallet"
-      />&nbsp;&nbsp;WALLET
-    </td>
+
+    <br />
+    <input
+      type="radio"
+      formControlName="card"
+      value="wallet"
+    />&nbsp;&nbsp;WALLET
   </form>
-  <span *ngIf="userForm.get('card').invalid && clicked" style="color: red"
-    >Please select a mode of payment first</span
-  >
   <br />
-  <button type="submit" (click)="pay()">PAY</button>
+  <div *ngIf="c.card.invalid" class="error">
+    <div *ngIf="c.card.errors.required">Please select a mode of payment</div>
+  </div>
+  <button [disabled]="!userForm.valid" type="submit" (click)="pay()">
+    PAY
+  </button>
 </div>
 <br />
 <div class="status">
@@ -47,7 +88,7 @@
   </div>
   <ng-template #notPaid>
     <div *ngIf="clicked">
-      <h7 style="color: red">Payment unsuccessful<br /></h7>
+      <h7 class="error">Payment unsuccessful<br /></h7>
       <a routerLink="/homepage"><button>TRY AGAIN</button></a>
     </div>
   </ng-template>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ResetPasswordService } from '../reset-password.service';
+import { PasswordValidator } from './password.validation';
 
 @Component({
   selector: 'app-passwordreset',
@@ -9,15 +11,11 @@ import { Router } from '@angular/router';
 })
 export class PasswordresetComponent implements OnInit {
   title = 'Login Page';
-  ResetForm: FormGroup;
   submitted = false;
-
-  //for the logged in email, need to compare old password
-  //get Email() {
-
-  //}
-
-  //need to compare old password
+  oldPassword: string;
+  newPassword: string;
+  customerId: number;
+  data: any;
   get Password() {
     return this.ResetForm.get('password');
   }
@@ -28,24 +26,40 @@ export class PasswordresetComponent implements OnInit {
     return this.ResetForm.get('password2');
   }
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  ResetForm: FormGroup;
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private resetPasswordService: ResetPasswordService
+  ) {}
 
   ngOnInit(): void {
-    this.ResetForm = this.fb.group({
-      //for password validation
-      password: ['', [Validators.required, Validators.minLength(8)]],
+    this.ResetForm = this.fb.group(
+      {
+        //for password validation
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        password1: ['', [Validators.required, Validators.minLength(8)]],
+        password2: ['', Validators.required],
+      },
+      { validator: PasswordValidator }
+    );
 
-      password1: ['', [Validators.required, Validators.minLength(8)]],
-      password2: ['', [Validators.required, Validators.minLength(8)]],
-    });
+    this.customerId = parseInt(sessionStorage.getItem('customerId'));
   }
 
   onSetClick(): void {
-    if (this.ResetForm.invalid) {
-      this.ResetForm.markAsTouched();
+    if (this.ResetForm.valid) {
+      this.router.navigate(['/afterReset']);
     } else {
-      this.ResetForm.markAsTouched();
-      this.router.navigate(['/']);
+      alert('Please enter valid details');
     }
+    console.log(this.oldPassword);
+    console.log(this.newPassword);
+    this.resetPasswordService
+      .reset(this.customerId, this.oldPassword, this.newPassword)
+      .subscribe((response) => {
+        this.data = response;
+        console.log(this.data.status);
+      });
   }
 }
