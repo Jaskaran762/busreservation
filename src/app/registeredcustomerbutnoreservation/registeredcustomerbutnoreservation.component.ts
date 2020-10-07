@@ -30,6 +30,7 @@ export class RegisteredcustomerbutnoreservationComponent implements OnInit {
         }
       });
     }
+    this.customersWithoutReservation();
   }
   customersWithoutReservation(){
     this.service. onCustomersWithoutBookings().subscribe(Response=>{this.customerWithoutReservation=Response;

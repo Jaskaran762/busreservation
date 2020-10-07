@@ -6,7 +6,7 @@
                 <h2 align="center">Login</h2>
                 <div class="form-group">
                     <label><b><i class="fas fa-envelope"></i> Email Address</b></label>
-                    <input type="email" formControlName="email" placeholder="Enter Email Address" name="t1" [(ngModel)]=login.emailId >
+                    <input type="email" formControlName="email" placeholder="Enter Email Address" name="t1" [(ngModel)]=login.emailId>
 
                     <div *ngIf="Email.invalid && Email.touched">
                         <div class="error">! Enter valid Email.</div>
@@ -22,7 +22,7 @@
                     <br>
                     <button class="button1" (click)="onLoginClick()">Login</button>
                     <button class="button1" routerLink="/" type="button">Cancel</button><br>
-                    <a routerLink="/frequentlytravelledroutes">Login as Admin</a><br>
+                    <a routerLink="/adminHome">Login as Admin</a><br>
                     <a routerLink="/forgotPassword">Forgot Password?</a>
 
                 </div>

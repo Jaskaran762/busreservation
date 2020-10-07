@@ -1,0 +1,23 @@
+<body>
+    <app-homepage></app-homepage>
+    <div class="sidenav">
+        <button class="dropdown-btn">Add/Remove Assets
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a [routerLink]="['/addbus']">Add/Remove Buses</a>
+
+        </div>
+        <button class="dropdown-btn">Analytics
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a [routerLink]="['/frequentlytravelledroutes']">Frequently travelled routes</a>
+            <a [routerLink]="['/lastmonthrecordsandprofit ']">Last month record and profits</a>
+            <a [routerLink]="['/mostpreferredtypeofbuses']">Most preferred types of buses</a>
+            <a [routerLink]="['/registeredcustomerbutnoreservation']">Customer who have registered but not made any reservation</a>
+            <a [routerLink]="['/reservationdetails']">Reservation details of customers () (monthly,annual basis)</a>
+        </div>
+    </div>
+
+</body>

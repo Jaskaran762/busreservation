@@ -24,6 +24,11 @@ import { BookinglistComponent} from './bookinglist/bookinglist.component';
 import { ProfileComponent} from './profile/profile.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AddbusComponent } from './addbus/addbus.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { AddStopsForBusComponent } from './add-stops-for-bus/add-stops-for-bus.component';
+import { MonthlyDetailsComponent } from './monthly-details/monthly-details.component';
+import { AnnualDetailsComponent } from './annual-details/annual-details.component';
 
 const routes: Routes = [
   { path:'', redirectTo: "/homepage", pathMatch: 'full'},
@@ -59,7 +64,14 @@ const routes: Routes = [
   { path:'mostpreferredtypeofbuses',component:MostpreferredtypeofbusesComponent },
   { path:'registeredcustomerbutnoreservation',component:RegisteredcustomerbutnoreservationComponent },
   { path:'reservationdetails',component:ReservationdetailsComponent },
-  { path:'wallettopup', component:WallettopupComponent}
+  { path:'wallettopup', component:WallettopupComponent},
+  {path:'addbus',component:AddbusComponent},
+  {path:'adminHome',component:AdmindashboardComponent },
+  {path:'addstopsforbus',component:AddStopsForBusComponent },{
+    path:'monthlydetails',component:MonthlyDetailsComponent
+  },{
+    path:'annualdetailfetch',component:AnnualDetailsComponent 
+  }
 ];
 
 @NgModule({

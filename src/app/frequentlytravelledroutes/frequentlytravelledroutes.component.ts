@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
 export class FrequentlytravelledroutesComponent implements OnInit{
 
     dropdown: any;
-    public frequentRoute: Array<FrequentRoutes> = [];
+    public frequentRoute: Array<any> = [];
   
   constructor(
     private router: Router, // inject router
@@ -36,10 +36,13 @@ export class FrequentlytravelledroutesComponent implements OnInit{
           dropdownContent.style.display = "none";
         } else {
           dropdownContent.style.display = "block";
+          
         }
       });
     }
+    this.frequentRoutes();
   }
+  
   frequentRoutes(){this.service.onfrequentRoutes().subscribe(Response=>{
     this.frequentRoute=Response;alert(JSON.stringify(this.frequentRoute))})
     

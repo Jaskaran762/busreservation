@@ -1,0 +1,37 @@
+<body>
+    <app-homepage></app-homepage>
+    <form>
+
+        <h1>Enter Bus Details</h1>
+
+        <fieldset>
+            <legend><span class="number">!</span>Enter Bus Details</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required name="bus_name" [(ngModel)]='bus.busName'>
+
+            <label for="bus_number">Bus number:</label>
+            <input type="text" id="Bus number" required name="bus_number" [(ngModel)]='bus.busNumber'>
+
+            <label for="Amount">Amount:</label>
+            <input type="number" id="amount" required name="bus_amount" [(ngModel)]='bus.amount'>
+
+            <label for="Seats">Seats:</label>
+            <input type="number" id="seats" required name="bus_seats" [(ngModel)]='bus.seats'>
+
+            <label for="types">Type:</label>
+            <input type="text" id="type" required name="bus_type" [(ngModel)]='bus.type'>
+
+            <label for="status">status:</label>
+            <input type="text" id="status" required name="bus_status" [(ngModel)]='bus.status'>
+
+
+            <!--<label for="Stops">Stops:</label>
+            <input type="number" id="stops" required name="bus_stops" [(ngModel)]='total'>
+
+            <a routerLink="/addstopsforbus">-</a>-><button type="submit" (click)="addBus()">Add Bus</button>-->
+            <br>
+            <a routerLink="/addstopsforbus"><button type="submit" (click)="addBus()">Add Routes</button></a>
+        </fieldset>
+    </form>
+
+</body>
