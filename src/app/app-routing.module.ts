@@ -25,6 +25,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { PassengerComponent } from './passenger/passenger.component';
 import { AfterResetPasswordComponent } from './after-reset-password/after-reset-password.component';
 import { OtpComponent } from './otp/otp.component';
 
@@ -66,6 +67,7 @@ const routes: Routes = [
   { path: 'seat-layout', component: SeatLayoutComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact-us', component: ContactUsComponent },
+  { path: 'passenger', component: PassengerComponent},
   {
     path: 'frequentlytravelledroutes',
     component: FrequentlytravelledroutesComponent,

@@ -1,0 +1,71 @@
+.checkout{
+    width: 60%;
+    margin: auto;
+    padding: 2% 3%;
+    text-align: center;
+}
+.row input{
+    display: inline-block;
+    width: 60%;
+    margin-top: 2px;
+    padding: 10px 25px;
+    margin: 10px 25px;
+    margin-top: 2px;
+    border-style: none;
+    border-style: solid;
+    border-color: rgb(27, 84, 131);
+    outline-color: rgb(27, 84, 131);
+}
+.form{
+    margin: 0px;
+    margin-top: 50px;
+    padding: 0px;
+    width: 100%;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    padding: 10px 20px;
+}
+.input input{
+    display: inline-block;
+    width: 60%;
+    margin-top: 2px;
+    padding: 10px 25px;
+    margin: 10px 25px;
+    margin-top: 2px;
+    border-style: none;
+    border-style: solid;
+    border-color: rgb(27, 84, 131);
+    outline-color: rgb(27, 84, 131);
+}
+.button{
+    margin: 10px 25px;
+    width: 40%;
+    text-align: center;
+    padding: 15px 25px;
+    border-style: none;
+    font-size: 25px;
+    font-weight: 500;
+    background-color: white;
+}
+.button:hover{
+    cursor: pointer;
+    background-color: rgb(27, 84, 131);
+    transition-duration: .5s;
+    color: white;
+}
+.content{
+    width: 90%;
+    padding: 2% 3%;
+}
+.entry{
+    display: inline-block;
+}
+.cell{
+    font-size: 20px;
+    font-weight: 500;
+    padding-right: 20px;
+}
+.cell span{
+    margin-right: 30px;
+}
