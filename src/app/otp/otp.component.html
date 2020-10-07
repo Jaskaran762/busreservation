@@ -1,0 +1,36 @@
+<div class="content">
+  <form [formGroup]="OtpForm" (ngSubmit)="(f.form.valid)" #f="ngForm">
+    <h2>Create Password</h2>
+    <div class="form-group">
+      <label for="password"><b>New Password</b></label
+      ><br />
+      <input
+        type="password"
+        placeholder="Enter Password"
+        formControlName="password"
+        [(ngModel)]="newPassword"
+        [class.invalid]="PasswordNew.invalid"
+      />
+
+      <div *ngIf="PasswordNew.invalid && PasswordNew.touched">
+        <div class="error">
+          ! Password should consist of minimum 8 characters.
+        </div>
+      </div>
+      <br /><br />
+      <label for="confirmPassword"><b>Confirm Password</b></label
+      ><br />
+      <input
+        type="password"
+        placeholder="Enter Password Again"
+        formControlName="confirmPassword"
+      />
+
+      <div *ngIf="OtpForm.errors?.misMatch">
+        <div class="error">! Passwords doesn't match</div>
+      </div>
+    </div>
+  </form>
+  <br />
+  <button (click)="onSubmit()" type="submit">Confirm</button>
+</div>
