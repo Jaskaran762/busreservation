@@ -1,0 +1,116 @@
+<app-homepage></app-homepage>
+<div class="checkout" *ngIf="!checkout">
+    <div class="owner" *ngIf="holla">
+        <div class="row">
+            <h3>Enter PAN CARD DETAILS</h3>
+            <input type="text" name="panCard" [(ngModel)]="panCard" required>
+        </div>
+        <div class="row">
+            <h3>ENTER MOBILE NUMBER</h3>
+            <input type="tel" name="mobileNumber" [(ngModel)]="mobileNumber" required>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input" *ngIf="holla">
+            <h3>Enter number of Passengers</h3>
+            <input type="number" name="numberOfPassengers" [(ngModel)]="numberOfPassengers" (change)="getCollection()">
+            <div><button (click)="getCollection()" class="button">Submit</button></div>
+        </div>
+        <div class="passenger">
+            <div *ngFor="let element of dummies">
+                <div class="form" *ngIf="element.showDummy">
+                    <h2>Passenger Details</h2>
+                    <div class="input">
+                        <h3>Name</h3>
+                        <input type="text" name="name" [(ngModel)]="name">
+                    </div>
+                    <div class="input">
+                        <h3>Age</h3>
+                        <input type="number" name="age" [(ngModel)]="age">
+                    </div>
+                    <div class="input">
+                        <h3>Address</h3>
+                        <input type="text" name="address" [(ngModel)]="address">
+                    </div>
+                    <div class="radio">
+                        <h3>Gender</h3>
+                        <input type="radio" name="gender" [(ngModel)]="gender" value="Male">
+                        <span> Male</span>
+                        <input type="radio" name="gender" [(ngModel)]="gender" value="Female">
+                        <span> Female</span>
+                        <input type="radio" name="gender" [(ngModel)]="gender" value="Other">
+                        <span> Other</span>
+                    </div>
+                    <div>
+                        <button class="button" (click)="savePassenger(element)">Save</button>
+                    </div>
+                </div>
+                <div class="message" *ngIf="!element.showDummy">
+                    <h2>Successfully added Passenger</h2>
+                </div>
+            </div>
+        </div>
+        <button (click)="submitPassengers()" class="button" *ngIf="!holla"> Proceed</button>
+    </div>
+
+    <small class="error" *ngIf="error">Please enter all Passenger details</small>
+</div>
+<div class="content" *ngIf="checkout">
+    <div>
+        <h2> Please confirm your Details</h2>
+    </div>
+    <div *ngIf="!editForm">
+        <div *ngFor="let pas of passengers">
+            <span class="entry">
+                <span class="cell">
+                    <span>Name</span>
+                    <span>{{pas.name}}</span>
+                </span>
+                <span class="cell">
+                    <span>Age</span>
+                    <span>{{pas.age}}</span>
+                </span>
+                <span class="cell">
+                    <span>Address</span>
+                    <span>{{pas.address}}</span>
+                </span>
+                <span class="cell">
+                    <span>Gender</span>
+                    <span>{{pas.gender}}</span>
+                </span>
+                <span class="cell">
+                    <button (click)="editPassengerRequest(pas)">Edit</button>
+                </span>
+            </span>
+        </div>
+    </div>
+    <div *ngIf="editForm">
+        <div>
+            <h3>Name</h3>
+            <input type="text" name="name" [(ngModel)]="name">
+        </div>
+        <div>
+            <h3>Age</h3>
+            <input type="number" name="age" [(ngModel)]="age">
+        </div>
+        <div>
+            <h3>Address</h3>
+            <input type="text" name="address" [(ngModel)]="address">
+        </div>
+        <div>
+            <h3>Gender</h3>
+            <input type="radio" name="gender" [(ngModel)]="gender" value="Male">
+            <span> Male</span>
+            <input type="radio" name="gender" [(ngModel)]="gender" value="Female">
+            <span> Female</span>
+            <input type="radio" name="gender" [(ngModel)]="gender" value="Other">
+            <span> Other</span>
+        </div>
+        <div>
+            <button (click)="editPassenger()">Submit</button>
+        </div>
+    </div>
+    <div>
+        <button (click)="saveBooking()">Proceed to Payment Page</button>
+    </div>
+</div>

@@ -85,4 +85,8 @@ export class ShowBusesComponent implements OnInit {
       //this.router.navigate(["/showBuses"])
     })    
   }
+
+  getBusId(bus: ShowBusDto){
+      sessionStorage.setItem("busId",String(bus.id))
+  }
 }
