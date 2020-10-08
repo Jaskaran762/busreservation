@@ -11,7 +11,7 @@ import { AdminService } from '../admin.service';
 export class MostpreferredtypeofbusesComponent implements OnInit {
 
   dropdown: any;
-  public mostPreferredBus:Array<any> = []
+  public mostPreferredBus:Array<any> = [];
 
   constructor(private router: Router,private service:AdminService
     ) { this.dropdown = document.getElementsByClassName("dropdown-btn"); }
@@ -29,6 +29,7 @@ export class MostpreferredtypeofbusesComponent implements OnInit {
         }
       });
     }
+    this.mostPreferredBuses();
   }
   mostPreferredBuses(){
     this.service. onmostPreferredBuses().subscribe(Response=>{this.mostPreferredBus=Response;

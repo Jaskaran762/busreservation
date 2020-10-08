@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FrequentRoutes } from './frequent-routes';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Customer } from './cancel-booking/cancel-booking.component';
+import { Bus } from './bus';
+import { Route } from './route';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
   
+  
+ 
+ 
+  private totalSource=new Subject<Number>();
+  totalstop$=this.totalSource.asObservable;
 
   constructor( private http : HttpClient) { }
-  onfrequentRoutes() : Observable<FrequentRoutes[]>{
+  onfrequentRoutes() : Observable<any[]>{
     let url = "http://localhost:8181//frequentlytravelledroutes";
-    return this.http.post<FrequentRoutes[]>(url,"");
+    return this.http.post<any[]>(url,"");
   }
 
   onCustomersWithoutBookings() : Observable<Customer[]>{
@@ -26,8 +34,31 @@ export class AdminService {
     return this.http.post<any[]>(url,"");
   }
   onProfitInAMonth(n:number) : Observable<number>{
-    let url = "http://localhost:9292//lastmonthrecordsandprofit"+n;
+    let url = "http://localhost:8181//lastmonthrecordsandprofit?month="+n;
     return this.http.get<number>(url);
   }
+  
+  submitBusRouteDetails( routes:Route) : Observable<any>{
+    let bus=JSON.parse(sessionStorage.bus);
+   
+    let url = "http://localhost:8181/addrouteforbus";
+    
+    return this.http.post(url,routes);
+  }
+  submitBusDetails(bus:Bus){
+    let url = "http://localhost:8181/addbus";
+    return this.http.post(url,bus);
 
+  }
+  onLastMonthDetails() : Observable<any[]>{
+    let url = "http://localhost:8181/bookingDetailsByMonth";
+    return this.http.post<any[]>(url,"");
+  }
+  onAnnualDetails() : Observable<any[]>{
+    let url = "http://localhost:8181//bookingDetailsByYear";
+    return this.http.post<any[]>(url,"");
+  }
+  
+ 
 }
+

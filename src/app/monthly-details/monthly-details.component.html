@@ -10,15 +10,15 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Email ID</th>
-                <th>Mobile Number</th>
+                <th>Date of Travel</th>
+                <th>Travel Route</th>
 
             </tr>
-            <tr *ngFor="let customer of customerWithoutReservation">
-                <td>{{customer.id}}</td>
-                <td>{{customer.name}}</td>
-                <td>{{customer.emailId}}</td>
-                <td>{{customer.mobileNo}}</td>
+            <tr *ngFor="let detail of lastMonthDetails">
+                <td>{{detail[0]}}</td>
+                <td>{{detail[1]}}</td>
+                <td>{{detail[2]}}</td>
+                <td>{{detail[3]}}</td>
 
             </tr>
         </table>

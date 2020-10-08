@@ -1,0 +1,26 @@
+.content {
+  border: 1px solid black;
+  position: relative;
+  left: 400px;
+  top: 50px;
+  width: 40%;
+  padding: 50px 120px;
+}
+.error {
+  color: red;
+}
+
+input[type="password"] {
+  border: none;
+  background: rgb(248, 245, 245, 0.8);
+  padding: 7px;
+  width: auto;
+}
+button {
+  background-color: rgb(26, 147, 247);
+  color: white;
+  border: none;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+}

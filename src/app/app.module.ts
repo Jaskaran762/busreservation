@@ -34,6 +34,11 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { WallettopupComponent } from './wallettopup/wallettopup.component';
 import { ProfilePicComponent } from './profile-pic/profile-pic.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AddbusComponent } from './addbus/addbus.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { AddStopsForBusComponent } from './add-stops-for-bus/add-stops-for-bus.component';
+import { MonthlyDetailsComponent } from './monthly-details/monthly-details.component';
+import { AnnualDetailsComponent } from './annual-details/annual-details.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { AfterResetPasswordComponent } from './after-reset-password/after-reset-password.component';
@@ -71,6 +76,11 @@ import { AfterResetPasswordComponent } from './after-reset-password/after-reset-
      WallettopupComponent,
      ProfilePicComponent,
      EditProfileComponent,
+     AddbusComponent,
+     AdmindashboardComponent,
+     AddStopsForBusComponent,
+     MonthlyDetailsComponent,
+     AnnualDetailsComponent,
      PassengerComponent,
      TicketComponent,
      AfterResetPasswordComponent

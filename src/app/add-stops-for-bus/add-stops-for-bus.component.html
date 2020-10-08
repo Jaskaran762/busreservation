@@ -1,0 +1,32 @@
+<body>
+    <app-homepage></app-homepage>
+    <form>
+
+        <h1>Enter Route Details</h1>
+
+        <fieldset>
+            <legend><span class="number">!</span>Enter Stop Details</legend>
+            <button type="submit " (click)='addStopsForBuses()' class={{class}}>Add Stop </button>
+            <div *ngFor="let r of routes;let i=index;">
+
+
+                <label for="stop">Stop {{counter}} :</label>
+                <input type="text " id="stop " name="stop" required [(ngModel)]='route.stop'>
+
+                <label for="arrivalTime">Arrval Time:</label>
+                <input type="time" id="arrival " name="arrivalTime" required [(ngModel)]='route.arrivalTime'>
+
+                <label for="departureTime">Departure Time:</label>
+                <input type="time" id="departure " name="departureTime" required [(ngModel)]='route.departureTime'>
+
+                <label for="sequence">Sequence:</label>
+                <input type="text" id="sequence " name="sequence" required [(ngModel)]='route.sequence'><br><br>
+
+                <button type="submit" (click)='addStopsForBuses()' (click)=' removeAddress(i)'>Submit </button><br>
+                <a routerLink="/adminHome"> <button type="submit" (click)='finalSubmit()'>Done </button></a>
+
+            </div>
+        </fieldset>
+    </form>
+
+</body>
