@@ -4,6 +4,17 @@
     padding: 2% 3%;
     text-align: center;
 }
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    position: relative;
+    padding-top: 15px;
+}
+.navitem{
+    color: white;
+    padding: 5px 5px;
+}
+
 .row input{
     display: inline-block;
     width: 60%;
@@ -47,6 +58,14 @@
     font-size: 25px;
     font-weight: 500;
     background-color: white;
+}
+.button2{
+    float: right;
+    background-color: white;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 5px 10px;
+    padding: 5px 20px;
 }
 .button:hover{
     cursor: pointer;

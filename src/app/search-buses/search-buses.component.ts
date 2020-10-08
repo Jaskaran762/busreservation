@@ -18,6 +18,8 @@ export class SearchBusesComponent implements OnInit {
   showList : boolean = false;
   showBus : ShowBusDto[];
   stops : {};
+  travelDate: String =new Date().toLocaleDateString();;
+  fromDate: Date = new Date();
 
   constructor( private router : Router, private searchBusService : SearchBusService, private fb: FormBuilder){ }
 
@@ -28,6 +30,8 @@ export class SearchBusesComponent implements OnInit {
   get Dst(){
     return this.searchForm.get("dst");
   }
+
+  
 
   ngOnInit(): void {
     this.searchForm = this.fb.group({
@@ -60,7 +64,7 @@ export class SearchBusesComponent implements OnInit {
     this.bus = b;
     sessionStorage.setItem('source',String(this.search.source));
     sessionStorage.setItem('destination', String(this.search.destination));
-    sessionStorage.setItem('travelDate', String(this.search.travelDate));
+    sessionStorage.setItem('travelDate', String(this.travelDate));
 
     sessionStorage.setItem('id',String(b.id));
     sessionStorage.setItem('busName',String(b.busName));
@@ -73,5 +77,9 @@ export class SearchBusesComponent implements OnInit {
 
   sendDto(){
     this.searchBusService.sendBusDto(this.search);
+    sessionStorage.setItem('source',String(this.search.source));
+    sessionStorage.setItem('destination', String(this.search.destination));
+    alert(this.travelDate);
+    sessionStorage.setItem('travelDate', String(this.travelDate));
   }
 }

@@ -3,26 +3,26 @@
     <div class="main">
       <div class="card">
         <form [formGroup]=signupForm (ngSubmit)="f.form.valid" #f="ngForm"> 
-          
+          <div class=form-group>
           <div class="container">
             <h2 align="center">Registration Form</h2>
             
             <label><b>Full Name</b></label><br />
-            <input type="text" placeholder="Enter your name" name="fullname" formControlName="fullname" [(ngModel)]=search.fullname [class.is-invalid]="signupForm.controls.fullname.invalid && fullname.touched">
+            <input type="text" placeholder="Enter your name" name="fullname" formControlName="fullname" [(ngModel)]=customer.name>
 
             <div *ngIf="fullname.invalid && fullname.touched">
               <div class="error">! Enter your full name</div>
             </div>
 
             <label for="email"><b>E-mail Address</b></label><br />
-            <input type="email" placeholder="Enter E-mail Address" name="email"formControlName="email" [(ngModel)]=search.email [class.invalid]="signupForm.controls.email.invalid">
+            <input type="email" placeholder="Enter E-mail Address" name="email"formControlName="email" [(ngModel)]=customer.emailId>
 
             <div *ngIf="email.invalid && email.touched">
               <div class="error">! Email address entered is not valid</div>
             </div>
 
             <label for="password"><b>Password</b></label><br />
-            <input type="password" placeholder="Enter Password" name="password" formControlName="password" [(ngModel)]=search.password [class.invalid]="password.invalid">
+            <input type="password" placeholder="Enter Password" name="password" formControlName="password" [(ngModel)]=customer.password>
 
             <div *ngIf="password.invalid && password.touched">
               <div class="error">! Password should consist of minimum 8 characters.</div>
@@ -36,16 +36,18 @@
             </div>
 
             <label for="mobile"><b>Mobile No.</b></label><br />
-            <input type="tel" placeholder="Enter Mobile Number" name="mobile" formControlName="mobile" [(ngModel)]=search.mobile>
+            <input type="tel" placeholder="Enter Mobile Number" name="mobile" formControlName="mobile" [(ngModel)]=customer.mobileNo>
 
             <div *ngIf="mobile.invalid && mobile.touched">
               <div class="error">! Enter a valid phone number</div>
             </div>
 
             <button class="button1" (click)=onSignupClick() type="submit">Sign Up</button>
-            <button class="button1" routerLink="/"  >Cancel</button>
+            <button class="button1" routerLink="/">Cancel</button>
           </div>
+        </div>
         </form>
+        <h3>{{message}}</h3>
       </div>
     </div>
   </div>

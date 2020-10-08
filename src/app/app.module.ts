@@ -37,7 +37,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { AfterResetPasswordComponent } from './after-reset-password/after-reset-password.component';
-import { OtpComponent } from './otp/otp.component';
+
 
 
 
@@ -73,8 +73,7 @@ import { OtpComponent } from './otp/otp.component';
      EditProfileComponent,
      PassengerComponent,
      TicketComponent,
-     AfterResetPasswordComponent,
-     OtpComponent
+     AfterResetPasswordComponent
   ],
   imports: [
     BrowserModule,

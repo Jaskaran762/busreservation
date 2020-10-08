@@ -1,15 +1,14 @@
 <app-homepage></app-homepage>
+<div class="topnav">
+    <span class="navitem">{{source}}</span>
+    <span class="navitem">To</span>
+    <span class="navitem">{{destination}}</span>
+    <span class="navitem">{{travelDate}}</span>
+    <span>
+        <button class="button2" routerLink="/homepage">Edit</button>
+    </span>
+</div>
 <div class="checkout" *ngIf="!checkout">
-    <div class="owner" *ngIf="holla">
-        <div class="row">
-            <h3>Enter PAN CARD DETAILS</h3>
-            <input type="text" name="panCard" [(ngModel)]="panCard" required>
-        </div>
-        <div class="row">
-            <h3>ENTER MOBILE NUMBER</h3>
-            <input type="tel" name="mobileNumber" [(ngModel)]="mobileNumber" required>
-        </div>
-    </div>
     <div class="container">
         <div class="input" *ngIf="holla">
             <h3>Enter number of Passengers</h3>
@@ -48,6 +47,16 @@
                 <div class="message" *ngIf="!element.showDummy">
                     <h2>Successfully added Passenger</h2>
                 </div>
+            </div>
+        </div>
+        <div class="owner" *ngIf="checkout">
+            <div class="row">
+                <h3>Enter PAN CARD DETAILS</h3>
+                <input type="text" name="panCard" [(ngModel)]="panCard" required>
+            </div>
+            <div class="row">
+                <h3>ENTER MOBILE NUMBER</h3>
+                <input type="tel" name="mobileNumber" [(ngModel)]="mobileNumber" required>
             </div>
         </div>
         <button (click)="submitPassengers()" class="button" *ngIf="!holla"> Proceed</button>
