@@ -2,11 +2,11 @@
 <div class="row center">
     <div class="main">
         <div class="card">
-            <form [formGroup]="LoginForm" (ngSubmit)="f.form.valid" #f="ngForm">
-                <h2 align="center">Login</h2>
+            <form [formGroup]="AdminLoginForm" (ngSubmit)="f.form.valid" #f="ngForm">
+                <h2 align="center">Login as Admin</h2>
                 <div class="form-group">
                     <label><b><i class="fas fa-envelope"></i> Email Address</b></label>
-                    <input type="email" formControlName="email" placeholder="Enter Email Address" name="t1" [(ngModel)]=login.emailId>
+                    <input type="email" formControlName="username" placeholder="Enter username or Email Address" name="t1" [(ngModel)]=login.username >
 
                     <div *ngIf="Email.invalid && Email.touched">
                         <div class="error">! Enter valid Email.</div>
@@ -22,11 +22,9 @@
                     <br>
                     <button class="button1" (click)="onLoginClick()">Login</button>
                     <button class="button1" routerLink="/" type="button">Cancel</button><br>
-                    <a routerLink="/adminLogin">Login as Admin</a><br>
-                    <a routerLink="/forgotPassword">Forgot Password?</a>
-
                 </div>
             </form>
         </div>
     </div>
 </div>
+

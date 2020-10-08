@@ -36,6 +36,7 @@ import { OtpComponent } from './otp/otp.component';
 import { BookingResultComponent } from './booking-result/booking-result.component';
 import { RemoveBusComponent } from './remove-bus/remove-bus.component';
 import { AddstopsComponent } from './addstops/addstops.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
+  { path: 'adminLogin', component: AdminLoginComponent},
   { path: 'searchBuses', component: SearchBusesComponent },
   { path: 'showBuses', component: ShowBusesComponent },
   {
