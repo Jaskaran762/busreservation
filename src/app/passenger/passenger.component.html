@@ -10,10 +10,9 @@
 </div>
 <div class="checkout" *ngIf="!checkout">
     <div class="container">
-        <div class="input" *ngIf="holla">
-            <h3>Enter number of Passengers</h3>
-            <input type="number" name="numberOfPassengers" [(ngModel)]="numberOfPassengers" (change)="getCollection()">
-            <div><button (click)="getCollection()" class="button">Submit</button></div>
+        <div>
+            <button (click)="addPassenger()" class="button">Add Passenger</button>
+            <h2 *ngIf="isAdd">Click Add Passenger to add a Passenger</h2>
         </div>
         <div class="passenger">
             <div *ngFor="let element of dummies">
@@ -50,7 +49,7 @@
             </div>
         </div>
         
-        <button (click)="submitPassengers()" class="button" *ngIf="!holla"> Proceed</button>
+        <button (click)="submitPassengers()" class="button" *ngIf="!checkout"> Proceed</button>
     </div>
 
     <small class="error" *ngIf="error">Please enter all Passenger details</small>

@@ -31,28 +31,30 @@ export class PassengerComponent implements OnInit {
 
   checkout: boolean = false;
   editForm: boolean = false;
-  holla: boolean =true;
+  isAdd: boolean = true;
 
   passenger: Passenger;
   searchDto: SearchBusDto;
   mergedBooking: MergedBooking;
+  dummy: Dummy = new Dummy();
 
   constructor(private router: Router, private searchBusService: SearchBusService) { }
 
   ngOnInit(): void {
- 
-    this.source= sessionStorage.getItem("source");
-    this.destination= sessionStorage.getItem("destination");
-    this.travelDate=  sessionStorage.getItem("travelDate");
+    this.source = sessionStorage.getItem("source");
+    this.destination = sessionStorage.getItem("destination");
+    this.travelDate = sessionStorage.getItem("travelDate");
+    this.checkout = false;
   }
 
-  getCollection() {
-    for (let index = 0; index < this.numberOfPassengers; index++) {
-      let dummy = new Dummy();
-      dummy.value = index;
-      dummy.showDummy = true;
-      this.dummies.push(dummy);
-      this.holla= false;
+  addPassenger() {
+    if (this.passengers.length == this.dummies.length) {
+      this.dummy = new Dummy();
+      this.dummy.showDummy = true;
+      this.dummy.value = 1;
+      this.dummies.push(this.dummy);
+      this.error = false;
+      this.isAdd = false;
     }
   }
 
@@ -68,11 +70,13 @@ export class PassengerComponent implements OnInit {
     this.name = '';
     this.passengers.push(passenger);
     element.showDummy = false;
-
+    if (this.passengers.length == this.dummies.length) {
+      this.error = true;
+    }
   }
 
   submitPassengers() {
-    if (this.passengers.length != this.dummies.length) {
+    if (this.passengers.length != this.dummies.length || this.passengers.length == 0) {
       this.error = true;
     }
     else {
@@ -116,7 +120,7 @@ export class PassengerComponent implements OnInit {
     this.booking.panCard = this.panCard;
     this.booking.mobileNumber = this.mobileNumber;
     this.booking.passengers = this.passengers;
-    sessionStorage.setItem("amount",String(parseInt(sessionStorage.getItem("amount"))*this.numberOfPassengers));
+    sessionStorage.setItem("amount", String(parseInt(sessionStorage.getItem("amount")) * this.numberOfPassengers));
     if (!isNaN(parseInt(sessionStorage.getItem('customerId')))) {
       this.booking.customerId = parseInt(sessionStorage.getItem('customerId'));
     }
@@ -126,7 +130,7 @@ export class PassengerComponent implements OnInit {
     alert(JSON.stringify(this.booking));
     this.searchBusService.saveBookingandPassengers(this.booking).subscribe(response => {
       alert(JSON.stringify(response));
-      sessionStorage.setItem("bookingId",String(response.bookingId));
+      sessionStorage.setItem("bookingId", String(response.bookingId));
     });
     this.router.navigateByUrl('/payment');
   }
