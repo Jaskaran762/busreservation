@@ -37,6 +37,7 @@ import { BookingResultComponent } from './booking-result/booking-result.componen
 import { RemoveBusComponent } from './remove-bus/remove-bus.component';
 import { AddstopsComponent } from './addstops/addstops.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
   {
@@ -65,7 +66,7 @@ const routes: Routes = [
       { path: 'editprofile', component: EditProfileComponent },
     ],
   },
-  { path: 'otp', component: OtpComponent },
+
   { path: 'afterReset', component: AfterResetPasswordComponent },
   { path: 'ticket', component: TicketComponent },
   { path: 'cancel-booking', component: CancelBookingComponent },

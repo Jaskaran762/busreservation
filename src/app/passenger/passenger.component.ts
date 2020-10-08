@@ -25,6 +25,9 @@ export class PassengerComponent implements OnInit {
   dummies: Dummy[] = new Array();
   passengers: Passenger[] = new Array();;
   booking: Booking;
+  source: String;
+  destination: String;
+  travelDate: String;
 
   checkout: boolean = false;
   editForm: boolean = false;
@@ -37,7 +40,10 @@ export class PassengerComponent implements OnInit {
   constructor(private router: Router, private searchBusService: SearchBusService) { }
 
   ngOnInit(): void {
-
+ 
+    this.source= sessionStorage.getItem("source");
+    this.destination= sessionStorage.getItem("destination");
+    this.travelDate=  sessionStorage.getItem("travelDate");
   }
 
   getCollection() {
@@ -105,11 +111,12 @@ export class PassengerComponent implements OnInit {
     this.booking = new Booking();
     this.booking.seatsBooked = this.passengers.length;
     this.booking.status = "Pending";
-    this.booking.travelRoute = this.searchDto.source + " to " + this.searchDto.destination;
-    this.booking.dateOfTravel = this.searchDto.travelDate;
+    this.booking.travelRoute = this.source + " to " + this.destination;
+    this.booking.dateOfTravel = new Date(String(this.travelDate));
     this.booking.panCard = this.panCard;
     this.booking.mobileNumber = this.mobileNumber;
     this.booking.passengers = this.passengers;
+    sessionStorage.setItem("amount",String(parseInt(sessionStorage.getItem("amount"))*this.numberOfPassengers));
     if (!isNaN(parseInt(sessionStorage.getItem('customerId')))) {
       this.booking.customerId = parseInt(sessionStorage.getItem('customerId'));
     }
@@ -118,7 +125,8 @@ export class PassengerComponent implements OnInit {
     }
     alert(JSON.stringify(this.booking));
     this.searchBusService.saveBookingandPassengers(this.booking).subscribe(response => {
-      
+      alert(JSON.stringify(response));
+      sessionStorage.setItem("bookingId",String(response.bookingId));
     });
     this.router.navigateByUrl('/payment');
   }

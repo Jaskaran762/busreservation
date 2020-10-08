@@ -1,12 +1,12 @@
 <app-homepage></app-homepage>
 <div class="topnav">
-    <span class="navitem">{{realDto.source}}</span>
-    <i class="fas fa-arrow-alt-circle-right"></i>
-    <span class="navitem">{{realDto.destination}}</span>
-    <span class="navitem">{{realDto.travelDate}}</span>
-    <div>
+    <span class="navitem">{{source}}</span>
+    <span class="navitem">To</span>
+    <span class="navitem">{{destination}}</span>
+    <span class="navitem">{{travelDate}}</span>
+    <span>
         <button class="button" routerLink="/homepage">Edit</button>
-    </div>
+    </span>
 </div>
 <div class="sidebar">
     <h2>Filters</h2>
@@ -39,14 +39,14 @@
             <span class="cell">
                 <h3>Departure time</h3>
                 <div>{{bus.departureTime}}</div>
-                <div>{{realDto.travelDate}}</div>
+                <div>{{travelDate}}</div>
                 <div>{{realDto.source}}</div>
             </span>
 
             <span class="cell">
                 <h3>Arrival time</h3>
                 <div>{{bus.arrivalTime}}</div>
-                <div>{{realDto.travelDate}}</div>
+                <div>{{travelDate}}</div>
                 <div>{{realDto.destination}}</div>
             </span>
             <span class="cell cell3">

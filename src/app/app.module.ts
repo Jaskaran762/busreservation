@@ -50,6 +50,7 @@ import { AddstopsComponent } from './addstops/addstops.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +91,8 @@ import { AddstopsComponent } from './addstops/addstops.component';
      OtpComponent,
      BookingResultComponent,
      RemoveBusComponent,
-     AddstopsComponent
+     AddstopsComponent,
+     AfterResetPasswordComponent
   ],
   imports: [
     BrowserModule,

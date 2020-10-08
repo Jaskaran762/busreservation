@@ -1,42 +1,43 @@
+<app-homepage></app-homepage>
 <div class="pageContent">
-  <h4>YOUR TICKET IS BOOKED FOR "TRAVEL_DATE"</h4>
-  <button (click)="view()">CLICK HERE TO VIEW</button><br /><br />
+  <h4>CONGRATS!!!! YOU HAVE SUCCESSFULLY BOOKED YOUR TICKET</h4>
+  <button (click)="view()">CLICK HERE TO VIEW DETAILS</button><br /><br />
   <div *ngIf="viewTicket">
     <div class="ticket">
-      <h3>"BusName" Travels</h3>
+      <h3>{{status.busName}} Travels</h3>
       <hr />
       <table>
         <tr>
+          <td>Payment Id  :</td>
+          <td>{{status.paymentId}}</td>
+        </tr>
+        <tr>
           <td>Route :</td>
-          <td>"______to_________"</td>
+          <td>{{status.route}}</td>
         </tr>
         <tr>
           <td>Bus No :</td>
-          <td></td>
+          <td>{{status.busId}}</td>
         </tr>
         <tr>
-          <td>PNR(booking id) :</td>
-          <td></td>
+          <td>Contact Details :</td>
+          <td>{{status.mobileNumber}}</td>
         </tr>
         <tr>
-          <td>Seats :</td>
-          <td></td>
+          <td>Seats Booked :</td>
+          <td>{{status.numberOfPassengers}}</td>
         </tr>
         <tr>
-          <td>Bus Name :</td>
-          <td></td>
+          <td>Payment DateTime</td>
+          <td>{{status.paymentDateTime}}</td>
         </tr>
         <tr>
           <td>Date Of Travel :</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Time Of Departure :</td>
-          <td></td>
+          <td>{{status.dateOfTravel}}</td>
         </tr>
         <tr>
           <td>Total Fare:</td>
-          <td>Rs.{{ totalFare }}</td>
+          <td>Rs.{{status.amount}}</td>
         </tr>
       </table>
       <hr />

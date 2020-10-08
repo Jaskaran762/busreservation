@@ -64,7 +64,17 @@ input[type=date] {
     z-index: 4;
 }
 
+<<<<<<< HEAD
 .footer span {
     padding-right: 10px;
     color: white;
 }
+=======
+  .button5{
+    border-style: none;
+    background-color: lightblue;
+    float: right;
+    color: black;
+  }
+
+>>>>>>> 451f6b94d40989af6cc6cb8ab8e4bd7de600b3f1

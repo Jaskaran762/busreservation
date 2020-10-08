@@ -22,12 +22,19 @@ export class ShowBusesComponent implements OnInit {
   searchDto: RealDto;
   numberOfBuses: number;
   src: String;
+  travelDate: String;
+  source: String;
+  destination: String;
 
   constructor(private searchBusService: SearchBusService) { }
 
   ngOnInit(): void { 
-    this.getSearchBusDto();
+    
     this.numberOfBuses=0;
+    this.travelDate= sessionStorage.getItem("travelDate");
+    this.source= sessionStorage.getItem("source");
+    this.destination= sessionStorage.getItem("destination");
+    this.getSearchBusDto();
   }
 
   checkBus(bus:ShowBusDto){
@@ -69,13 +76,14 @@ export class ShowBusesComponent implements OnInit {
   getSearchBusDto(){
     this.realDto = this.searchBusService.getDto();
     this.searchDto = new RealDto();
-    this.searchDto.source= this.realDto.source;
-    this.searchDto.destination=this.realDto.destination;
+    this.searchDto.source= this.source;
+    this.searchDto.destination=this.destination;
     this.src = String(this.searchDto.source);
     this.searchBuses();
   }
 
   searchBuses(){
+    alert(JSON.stringify(this.searchDto))
     this.searchBusService.searchBuses(this.searchDto).subscribe((response)=>{
 
      alert(JSON.stringify(response));
@@ -87,6 +95,11 @@ export class ShowBusesComponent implements OnInit {
   }
 
   getBusId(bus: ShowBusDto){
-      sessionStorage.setItem("busId",String(bus.id))
+      sessionStorage.setItem("busId",String(bus.id));
+      sessionStorage.setItem("source",String(this.source));
+      sessionStorage.setItem("destination",String(this.destination));
+      sessionStorage.setItem("amount",String(bus.amount));
+      sessionStorage.setItem("departureTime",String(bus.departureTime));
+      sessionStorage.setItem("arrivalTime",String(bus.arrivalTime));
   }
 }

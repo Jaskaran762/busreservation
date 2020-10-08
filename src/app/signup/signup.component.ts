@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { PasswordValidator } from './password.validation';
-import { Signup } from './signup';
+import { Customer } from './Customer';
+import { RegistrationService } from '../registration.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -13,31 +14,18 @@ export class SignupComponent implements OnInit {
   get fullname(){
     return this.signupForm.get('fullname')
   }
-
-  get uname(){
-    return this.signupForm.get('uname')
-  }
-
   get email(){
     return this.signupForm.get('email')
   }
-
   get password(){
     return this.signupForm.get('password')
   }
-
   get mobile(){
     return this.signupForm.get('mobile')
   }
 
-  get address(){
-    return this.signupForm.get('address')
-  }
-
-
-
   signupForm : FormGroup
-  constructor(private router: Router, private fb: FormBuilder)
+  constructor(private router: Router, private fb: FormBuilder,private registrationService : RegistrationService)
   { }
 
   ngOnInit(): void {
@@ -61,11 +49,21 @@ export class SignupComponent implements OnInit {
     
   }
 
-  search : Signup = new Signup()
-
+  customer : Customer = new Customer();
+  message : String;
   onSignupClick() : void{
     if(this.signupForm.valid){
-      this.router.navigate(["/"])
+      this.registrationService.register(this.customer).subscribe(data=>{
+        if(data.status==true){
+          alert(data.statusMessage);
+          this.router.navigate(["\login"])
+        }
+        else{
+          alert(data.statusMessage);
+          this.router.navigate(["\login"])
+        }
+      });
+      
     }
     else{
       alert('Please enter valid details')
