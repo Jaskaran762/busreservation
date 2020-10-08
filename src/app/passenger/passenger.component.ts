@@ -113,7 +113,6 @@ export class PassengerComponent implements OnInit {
     this.booking.status = "Pending";
     this.booking.travelRoute = this.source + " to " + this.destination;
     this.booking.dateOfTravel = new Date(String(this.travelDate));
-    this.booking.timeOfBooking = new Date();
     this.booking.panCard = this.panCard;
     this.booking.mobileNumber = this.mobileNumber;
     this.booking.passengers = this.passengers;
@@ -127,6 +126,7 @@ export class PassengerComponent implements OnInit {
     alert(JSON.stringify(this.booking));
     this.searchBusService.saveBookingandPassengers(this.booking).subscribe(response => {
       alert(JSON.stringify(response));
+      sessionStorage.setItem("bookingId",String(response.bookingId));
     });
     this.router.navigateByUrl('/payment');
   }

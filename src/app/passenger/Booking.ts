@@ -3,7 +3,6 @@ import { Passenger } from './Passenger';
 export class Booking{
     seatsBooked: number;
     dateOfTravel: Date;
-    timeOfBooking: Date;
     travelRoute: String;
     status: String;
     panCard: String;

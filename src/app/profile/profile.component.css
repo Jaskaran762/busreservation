@@ -50,7 +50,7 @@
 .row1 div .span{
     width: 400px;
     padding-right: 100px;
-    color: white;
+    color: black;
     display: block;
     margin-bottom: 10px;
 }
@@ -63,7 +63,7 @@
 }
 .row3 .span{
     display: block;
-    color: white;
+    color: black;
 }
 
 

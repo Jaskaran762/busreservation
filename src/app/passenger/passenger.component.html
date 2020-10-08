@@ -49,22 +49,17 @@
                 </div>
             </div>
         </div>
-        <div class="owner" *ngIf="checkout">
-            <div class="row">
-                <h3>Enter PAN CARD DETAILS</h3>
-                <input type="text" name="panCard" [(ngModel)]="panCard" required>
-            </div>
-            <div class="row">
-                <h3>ENTER MOBILE NUMBER</h3>
-                <input type="tel" name="mobileNumber" [(ngModel)]="mobileNumber" required>
-            </div>
-        </div>
+        
         <button (click)="submitPassengers()" class="button" *ngIf="!holla"> Proceed</button>
     </div>
 
     <small class="error" *ngIf="error">Please enter all Passenger details</small>
 </div>
+<div class="owner" *ngIf="checkout">
+    
+</div>
 <div class="content" *ngIf="checkout">
+    
     <div>
         <h2> Please confirm your Details</h2>
     </div>
@@ -88,21 +83,29 @@
                     <span>{{pas.gender}}</span>
                 </span>
                 <span class="cell">
-                    <button (click)="editPassengerRequest(pas)">Edit</button>
+                    <button (click)="editPassengerRequest(pas)" class="button">Edit</button>
                 </span>
             </span>
         </div>
     </div>
+    <div class="row">
+        <h3>Enter PAN CARD DETAILS</h3>
+        <input type="text" name="panCard" [(ngModel)]="panCard" required>
+    </div>
+    <div class="row">
+        <h3>ENTER MOBILE NUMBER</h3>
+        <input type="tel" name="mobileNumber" [(ngModel)]="mobileNumber" required>
+    </div>
     <div *ngIf="editForm">
-        <div>
+        <div class="input">
             <h3>Name</h3>
             <input type="text" name="name" [(ngModel)]="name">
         </div>
-        <div>
+        <div class="input">
             <h3>Age</h3>
             <input type="number" name="age" [(ngModel)]="age">
         </div>
-        <div>
+        <div class="input">
             <h3>Address</h3>
             <input type="text" name="address" [(ngModel)]="address">
         </div>
@@ -116,10 +119,10 @@
             <span> Other</span>
         </div>
         <div>
-            <button (click)="editPassenger()">Submit</button>
+            <button (click)="editPassenger()" class="button">Submit</button>
         </div>
     </div>
     <div>
-        <button (click)="saveBooking()">Proceed to Payment Page</button>
+        <button (click)="saveBooking()" class="button">Proceed to Payment Page</button>
     </div>
 </div>
