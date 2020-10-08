@@ -5,7 +5,9 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a [routerLink]="['/addbus']">Add/Remove Buses</a>
+            <a [routerLink]="['/addbus']">Add Bus</a>
+            <a [routerLink]="['/removebus']">Remove Bus</a>
+            <a [routerLink]="['/addstops']">Add/Update Routes</a>
 
         </div>
         <button class="dropdown-btn">Analytics
@@ -19,5 +21,9 @@
             <a [routerLink]="['/reservationdetails']">Reservation details of customers () (monthly,annual basis)</a>
         </div>
     </div>
-
+    <div class="search">
+        <input type='text' placeholder="Enter booking id or email-id" [(ngModel)]='search'>
+        <a [routerLink]="['/result']"><button type=' submit ' (click)='passthesearch()'>search</button></a>
+    </div>
+    <div CLASS=" welcome ">Welcome Shivam!</div>
 </body>

@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmindashboardComponent implements OnInit {
   dropdown: any;
+  search:string;
  
  
   constructor(  ) { this.dropdown = document.getElementsByClassName("dropdown-btn");}
@@ -26,6 +27,11 @@ export class AdmindashboardComponent implements OnInit {
       }
     });
   }
+  
+  }
+  passthesearch(){
+    sessionStorage.setItem("search",this.search);
+    
   }
 
   

@@ -39,7 +39,7 @@ export class AdminService {
   }
   
   submitBusRouteDetails( routes:Route) : Observable<any>{
-    let bus=JSON.parse(sessionStorage.bus);
+    //let bus=JSON.parse(sessionStorage.bus);
    
     let url = "http://localhost:8181/addrouteforbus";
     
@@ -58,7 +58,15 @@ export class AdminService {
     let url = "http://localhost:8181//bookingDetailsByYear";
     return this.http.post<any[]>(url,"");
   }
-  
+  onSearch(s:string):Observable<any[]>{
+    let url="http://localhost:8181/bookingDetails?id="+s;
+    return this.http.post<any[]>(url,"");
+  }
+  onRemoveBus(s:string){
+    let url="http://localhost:8181/busNumber?busNumber="+s;
+    return this.http.post(url,"");
+
+  }
  
 }
 

@@ -33,6 +33,9 @@ import { TicketComponent } from './ticket/ticket.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { AfterResetPasswordComponent } from './after-reset-password/after-reset-password.component';
 import { OtpComponent } from './otp/otp.component';
+import { BookingResultComponent } from './booking-result/booking-result.component';
+import { RemoveBusComponent } from './remove-bus/remove-bus.component';
+import { AddstopsComponent } from './addstops/addstops.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -106,6 +109,10 @@ const routes: Routes = [
   },
   { path: 'reservationdetails', component: ReservationdetailsComponent },
   { path: 'wallettopup', component: WallettopupComponent },
+  {path:'result',component:BookingResultComponent},{
+    path:'removebus',component:RemoveBusComponent
+  },
+  {path:'addstops',component:AddstopsComponent}
 ];
 
 @NgModule({
