@@ -1,0 +1,22 @@
+<body>
+    <app-homepage></app-homepage>
+    <form>
+
+        <h1>Remove Bus</h1>
+
+        <fieldset>
+
+            <label for="bus_number">Bus number:</label>
+            <input type="text" id="Bus number" required name="bus_number" [(ngModel)]='busNumber'>
+
+
+            <!--<label for="Stops">Stops:</label>
+            <input type="number" id="stops" required name="bus_stops" [(ngModel)]='total'>
+
+            <a routerLink="/addstopsforbus">-</a>-><button type="submit" (click)="addBus()">Add Bus</button>-->
+            <br>
+            <a routerLink="//adminHome"><button type="submit" (click)="removeBus()">Remove</button></a>
+        </fieldset>
+    </form>
+
+</body>
