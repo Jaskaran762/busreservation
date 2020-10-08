@@ -46,6 +46,7 @@ import { OtpComponent } from './otp/otp.component';
 import { BookingResultComponent } from './booking-result/booking-result.component';
 import { RemoveBusComponent } from './remove-bus/remove-bus.component';
 import { AddstopsComponent } from './addstops/addstops.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 
@@ -92,7 +93,8 @@ import { AddstopsComponent } from './addstops/addstops.component';
      BookingResultComponent,
      RemoveBusComponent,
      AddstopsComponent,
-     AfterResetPasswordComponent
+     AfterResetPasswordComponent,
+     AdminLoginComponent
   ],
   imports: [
     BrowserModule,
