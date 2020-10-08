@@ -120,6 +120,7 @@ export class PassengerComponent implements OnInit {
     this.booking.panCard = this.panCard;
     this.booking.mobileNumber = this.mobileNumber;
     this.booking.passengers = this.passengers;
+    this.numberOfPassengers=this.passengers.length;
     sessionStorage.setItem("amount", String(parseInt(sessionStorage.getItem("amount")) * this.numberOfPassengers));
     if (!isNaN(parseInt(sessionStorage.getItem('customerId')))) {
       this.booking.customerId = parseInt(sessionStorage.getItem('customerId'));

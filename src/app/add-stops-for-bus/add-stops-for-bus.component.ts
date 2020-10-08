@@ -51,7 +51,7 @@ export class AddStopsForBusComponent implements OnInit {
         alert(JSON.stringify(this.route));
       this.service.submitBusRouteDetails(this.route).subscribe(response=>{
        alert(JSON.stringify(response)); });
-       this.route=null;
+       //this.route=null;
       
       }
     }

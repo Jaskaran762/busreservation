@@ -95,6 +95,8 @@ export class ShowBusesComponent implements OnInit {
   }
 
   getBusId(bus: ShowBusDto){
+      alert(JSON.stringify(bus));
+      alert('guuu');
       sessionStorage.setItem("busId",String(bus.id));
       sessionStorage.setItem("source",String(this.source));
       sessionStorage.setItem("destination",String(this.destination));
