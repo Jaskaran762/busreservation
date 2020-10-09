@@ -62,10 +62,9 @@ export class PaymentComponent implements OnInit {
     this.payment.bookingId= this.bookingId;
     this.payment.busId = this.busId;
     this.payment.customerId = this.customerId;
-    alert(JSON.stringify(this.payment));
+  
     this.paymentService.pay(this.payment).subscribe(response=>{
       this.data = response;
-      alert(response);
       sessionStorage.setItem("paymentId",String(response.paymentId));
     })
     this.clicked = true;

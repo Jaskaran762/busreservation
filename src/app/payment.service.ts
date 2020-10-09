@@ -19,6 +19,10 @@ export class PaymentService {
     let url = 'http://localhost:8181/PaymentById';
     return this.http.post<PaymentStatus>(url,paymentId);
   }
+  getStatusByBookingId(bookingId:number): Observable<number>{
+    let url = 'http://localhost:8181/PaymentByBookingId?bookingId='+bookingId;
+    return this.http.post<number>(url,"");
+  }
 }
 
 export class PaymentStatus{

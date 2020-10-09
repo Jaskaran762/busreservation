@@ -22,7 +22,7 @@
       <div *ngIf="data && clicked">
         <h5>
           Your booking is
-          {{ data.statusMessage }}!<br />
+          cancelled<br />
         </h5>
       </div>
 
@@ -48,6 +48,8 @@
         <!--[routerLink]="['/bookings']"-->
         <a [routerLink]="['/dashboard/bookinglist']"><button>NO</button></a>
       </div>
+      <button routerLink="/dashboard" style="width: auto">Go Back</button>
     </div>
+    
   </body>
 </html>

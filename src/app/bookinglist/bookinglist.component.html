@@ -21,8 +21,9 @@
             <td>{{booking.dateOfTravel}}</td>
             <td>{{booking.timeOfTravel}}</td> 
             <td>{{booking.noOfBookings}}</td>
-            <td><button class="button">Print</button></td>
-            <td><button class="button" *ngIf="showCancelOrNot(booking.dateOfTravel,booking.bookingId)" routerLink="/cancel-booking">Cancel</button></td>
+            <td><button class="button" (click)="printBooking(booking)" routerLink="/ticket">Print</button></td>
+            <td><button class="button" *ngIf="showCancelOrNot(booking.dateOfTravel,booking.bookingId)" routerLink="/cancel-booking" (click)="cancelBooking(booking)">Cancel</button></td>
+            <td>{{booking.bookingStatus}}</td>
         </tr>
     </table>
 </div>

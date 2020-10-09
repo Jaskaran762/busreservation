@@ -32,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
         console.log('cust id= ' + this.customerId);
         sessionStorage.setItem('customerFromEmail', String(this.customerId));
         if (isNaN(this.customerId)) {
-          alert('check your mail id again');
+        
         }
         //if customer id is fetched, generate a OTP for the customer
         else {
@@ -53,7 +53,7 @@ export class ForgotPasswordComponent implements OnInit {
 
       this.router.navigate(['/otp']);
     } else {
-      alert('invalid OTP');
+      
     }
   }
 }

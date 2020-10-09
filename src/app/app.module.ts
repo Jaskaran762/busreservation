@@ -47,7 +47,7 @@ import { BookingResultComponent } from './booking-result/booking-result.componen
 import { RemoveBusComponent } from './remove-bus/remove-bus.component';
 import { AddstopsComponent } from './addstops/addstops.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-
+import { NgxPrintModule } from 'ngx-print';
 
 
 
@@ -102,6 +102,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NgxPrintModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -48,9 +48,8 @@ export class AddStopsForBusComponent implements OnInit {
       this.class='notDisplay';
       this.route.bus=JSON.parse(sessionStorage.getItem('bus'));
       if(this.counter>1){
-        alert(JSON.stringify(this.route));
       this.service.submitBusRouteDetails(this.route).subscribe(response=>{
-       alert(JSON.stringify(response)); });
+       });
        //this.route=null;
       
       }
@@ -60,7 +59,7 @@ export class AddStopsForBusComponent implements OnInit {
       
    
     this.service.submitBusRouteDetails(this.route).subscribe(response=>{
-      alert(JSON.stringify(response));
+
     });
    }
    removeAddress(i: number) {

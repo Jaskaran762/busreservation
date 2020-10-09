@@ -57,7 +57,7 @@ export class EditProfileComponent implements OnInit {
     this.profileService.updateProfile(this.customer).subscribe(response=>{
       this.profileStatus=response;
       this.getProfile();
-      alert(JSON.stringify(this.profileStatus));
+      
     })
   }
 

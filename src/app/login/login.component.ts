@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         }
         else{
           this.message = data.statusMessage;
-          alert(this.message);
+      
         }
       })
     }

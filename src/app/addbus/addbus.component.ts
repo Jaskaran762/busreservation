@@ -31,7 +31,7 @@ export class AddbusComponent implements OnInit {
   addBus(){
     //alert(JSON.stringify(this.customer));
     this.service.submitBusDetails(this.bus).subscribe(response=>{
-      alert(JSON.stringify(response));});
+     });
     
     //sessionStorage.setItem('total', String(this.total));
     sessionStorage.bus=JSON.stringify({ busName: this.bus.busName,

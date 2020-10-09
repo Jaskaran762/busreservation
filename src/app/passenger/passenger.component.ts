@@ -128,9 +128,8 @@ export class PassengerComponent implements OnInit {
     if (!isNaN(parseInt(sessionStorage.getItem('busId')))) {
       this.booking.busId = parseInt(sessionStorage.getItem('busId'));
     }
-    alert(JSON.stringify(this.booking));
+    
     this.searchBusService.saveBookingandPassengers(this.booking).subscribe(response => {
-      alert(JSON.stringify(response));
       sessionStorage.setItem("bookingId", String(response.bookingId));
     });
     this.router.navigateByUrl('/payment');

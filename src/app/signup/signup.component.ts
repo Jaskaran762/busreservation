@@ -55,18 +55,18 @@ export class SignupComponent implements OnInit {
     if(this.signupForm.valid){
       this.registrationService.register(this.customer).subscribe(data=>{
         if(data.status==true){
-          alert(data.statusMessage);
+  
           this.router.navigate(["\login"])
         }
         else{
-          alert(data.statusMessage);
+         
           this.router.navigate(["\login"])
         }
       });
       
     }
     else{
-      alert('Please enter valid details')
+      
     }
   }
 

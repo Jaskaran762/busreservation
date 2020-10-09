@@ -18,6 +18,6 @@ export class AnnualDetailsComponent implements OnInit {
   
   annualDetail(){
     this.service.onAnnualDetails().subscribe(Response=>{this.annualDetails=Response;
-    alert(JSON.stringify(this.annualDetails))})
+   })
 }
 }

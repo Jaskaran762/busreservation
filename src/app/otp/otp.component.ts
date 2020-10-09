@@ -53,10 +53,10 @@ export class OtpComponent implements OnInit {
           console.log(this.data.status);
           console.log(this.newPassword);
           //if password was reset, navigate to home page
-          if (this.data.status == true) this.router.navigate(['/']);
+          if (this.data.status == true) this.router.navigate(['/homepage']);
         });
     } else {
-      alert('Please enter valid details');
+      
     }
   }
 }

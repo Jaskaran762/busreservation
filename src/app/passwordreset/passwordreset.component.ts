@@ -51,7 +51,7 @@ export class PasswordresetComponent implements OnInit {
     if (this.ResetForm.valid) {
       this.router.navigate(['/afterReset']);
     } else {
-      alert('Please enter valid details');
+
     }
     console.log(this.oldPassword);
     console.log(this.newPassword);

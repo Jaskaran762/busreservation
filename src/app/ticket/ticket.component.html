@@ -3,7 +3,7 @@
   <h4>CONGRATS!!!! YOU HAVE SUCCESSFULLY BOOKED YOUR TICKET</h4>
   <button (click)="view()">CLICK HERE TO VIEW DETAILS</button><br /><br />
   <div *ngIf="viewTicket">
-    <div class="ticket">
+    <div class="ticket" id="printsection">
       <h3>{{status.busName}} Travels</h3>
       <hr />
       <table>
@@ -41,8 +41,9 @@
         </tr>
       </table>
       <hr />
-      <button>Print</button>
+      
     </div>
+    <button printSectionId="printsection" ngxPrint>Print</button>
     <h2>HAPPY JOURNEY!!</h2>
   </div>
 </div>

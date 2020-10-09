@@ -7,4 +7,5 @@ export class Booking {
     dateOfTravel: String;
     timeOfTravel: String;
     noOfBookings: String;
+    bookingStatus : String;
 }

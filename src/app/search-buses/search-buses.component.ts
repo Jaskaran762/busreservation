@@ -79,7 +79,6 @@ export class SearchBusesComponent implements OnInit {
     this.searchBusService.sendBusDto(this.search);
     sessionStorage.setItem('source',String(this.search.source));
     sessionStorage.setItem('destination', String(this.search.destination));
-    alert(this.travelDate);
     sessionStorage.setItem('travelDate', String(this.travelDate));
   }
 }

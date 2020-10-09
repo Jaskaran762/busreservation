@@ -27,7 +27,7 @@ export class ProfilePicComponent implements OnInit {
     formData.append('profilePic',this.profilePic)
 
     this.profileService.uploadPic(formData).subscribe(data=>{
-      alert(JSON.stringify(data));
+  
     })
   }
 

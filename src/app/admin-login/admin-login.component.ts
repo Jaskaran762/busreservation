@@ -41,14 +41,14 @@ export class AdminLoginComponent implements OnInit {
   onLoginClick(){
     //console.log(this.login)
     this.adminLoginService.onLogin(this.login).subscribe(data=>{
-      alert(data.statusMessage);
+      
       if(data.status == true){
         sessionStorage.setItem( 'customerId', String(data.customerId));
         this.router.navigate(['/adminHome']);
       }
       else{
         this.message = data.statusMessage;
-        alert(this.message);
+       
       }
     })
   }

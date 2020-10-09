@@ -83,10 +83,8 @@ export class ShowBusesComponent implements OnInit {
   }
 
   searchBuses(){
-    alert(JSON.stringify(this.searchDto))
+  
     this.searchBusService.searchBuses(this.searchDto).subscribe((response)=>{
-
-     alert(JSON.stringify(response));
       this.buses = response;
       this.numberOfBuses=this.buses.length;
       //sessionStorage.setItem('showBus', JSON.stringify(showBus));
@@ -95,8 +93,8 @@ export class ShowBusesComponent implements OnInit {
   }
 
   getBusId(bus: ShowBusDto){
-      alert(JSON.stringify(bus));
-      alert('guuu');
+    
+  
       sessionStorage.setItem("busId",String(bus.id));
       sessionStorage.setItem("source",String(this.source));
       sessionStorage.setItem("destination",String(this.destination));

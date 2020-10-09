@@ -34,9 +34,9 @@ export class AddstopsComponent implements OnInit {
       this.class='notDisplay';
       //this.route.bus=JSON.parse(sessionStorage.getItem('bus'));
       if(this.counter>1){
-        alert(JSON.stringify(this.route));
+        
       this.service.submitBusRouteDetails(this.route).subscribe(response=>{
-       alert(JSON.stringify(response)); });
+        });
 
         
       }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Booking } from '../booking';
 import { BookingService } from '../booking.service';
 import { TypeScriptEmitter } from '@angular/compiler';
+import { of } from 'rxjs';
+import { PaymentService } from '../payment.service';
 
 @Component({
   selector: 'app-bookinglist',
@@ -13,12 +15,12 @@ export class BookinglistComponent implements OnInit {
   public bookings: Array<Booking> = [];
   customerId: number;
   class:String="button";
-  constructor(private bookingService: BookingService) { }
+  constructor(private bookingService: BookingService,private paymentService: PaymentService) { }
 
   ngOnInit(): void {
     this.getBookings();
   }
-  showCancelOrNot(dateOfTravel:String,bookId:number) {
+  showCancelOrNot(dateOfTravel:String,bookId:number,booking:Booking) {
     let date: Date = new Date();
     let bookingDate = new Date(dateOfTravel.valueOf());
     if(date.getFullYear()>bookingDate.getFullYear()){
@@ -46,12 +48,22 @@ export class BookinglistComponent implements OnInit {
     }
   }
 
+  cancelBooking(booking: Booking){
+    sessionStorage.setItem("bookingId",String(booking.bookingId));
+  }
   getBookings() {
     this.customerId = parseInt(sessionStorage.getItem("customerId"));
     this.bookingService.showBookings(this.customerId).subscribe(response => {
       this.bookings = response;
       //alert(JSON.stringify(this.bookings));
     })
+  }
+
+  printBooking(booking: Booking){
+    this.paymentService.getStatusByBookingId(booking.bookingId).subscribe(response=>{
+      sessionStorage.setItem("paymentId",String(response));
+    })
+
   }
 
 }
